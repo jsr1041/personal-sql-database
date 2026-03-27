@@ -394,7 +394,21 @@ def run_intake_interview():
     )
 
     training_purpose = ask(
-        "Training purpose (e.g. Aerobic base, Threshold development, Shakeout, Race prep, Fitness check):",
+        "Training purpose:",
+        choices=[
+            "Aerobic Base",
+            "Threshold Development",
+            "VO2 Max",
+            "Speed/Neuromuscular",
+            "Long Run",
+            "Recovery",
+            "Daily Movement",
+            "Race Prep",
+            "Fitness Check",
+            "Shakeout",
+            "Strength",
+            "Other",
+        ],
     )
 
     analysis_notes = ask(
