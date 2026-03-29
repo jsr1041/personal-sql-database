@@ -354,11 +354,6 @@ def run_intake_interview():
         choices=["Road", "Trail", "Track", "Treadmill", "Mixed"],
     )
 
-    raw_notes = ask(
-        "Raw notes to attach to the exercise record (optional — press Enter to skip):",
-        required=False, allow_empty=True,
-    )
-
     # --- workout_analysis fields ---
     print("\n── Subjective Analysis ───────────────────────────────")
 
@@ -422,7 +417,6 @@ def run_intake_interview():
 
     exercise_extras = {
         "subtype_override": workout_type,   # may override FIT sub_sport
-        "raw_notes": raw_notes,
         "planned": planned == "y",
         "terrain": terrain,
     }
@@ -461,7 +455,6 @@ def print_write_summary(exercise_fields, exercise_extras, analysis_data, trackpo
     print(f"    duration_minutes : {exercise_fields['duration_minutes']}")
     print(f"    avg_hr / max_hr  : {exercise_fields['average_heart_rate']} / {exercise_fields['max_heart_rate']}")
     print(f"    avg_power        : {exercise_fields['average_power']}")
-    print(f"    raw_notes        : {exercise_extras['raw_notes'] or '(none)'}")
     print(f"\n  exercise_trackpoint: {trackpoint_count:,} rows")
     print(f"\n  workout_analysis table:")
     for k, v in analysis_data.items():
@@ -504,7 +497,6 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             average_cadence, average_power, max_power,
             calories, tss_score, num_laps,
             avg_vertical_ratio, avg_stance_time_balance, avg_step_length_mm,
-            raw_notes,
             source_system, source_object
         ) VALUES (
             %(day_id)s, %(week_id)s, %(activity_date)s,
@@ -514,7 +506,6 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             %(average_cadence)s, %(average_power)s, %(max_power)s,
             %(calories)s, %(tss_score)s, %(num_laps)s,
             %(avg_vertical_ratio)s, %(avg_stance_time_balance)s, %(avg_step_length_mm)s,
-            %(raw_notes)s,
             %(source_system)s, %(source_object)s
         )
         RETURNING exercise_id;
@@ -522,7 +513,6 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
     params = {
         **exercise_fields,
         "subtype_of_activity": exercise_extras["subtype_override"],
-        "raw_notes": exercise_extras["raw_notes"],
         "day_id": day_id,
         "week_id": week_id,
         "source_system": "garmin_fit",
@@ -601,11 +591,16 @@ def insert_workout_analysis(cur, exercise_id, analysis_data):
 # ---------------------------------------------------------------------------
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python ingest_fit_workout.py <path_to_fit_file>")
-        sys.exit(1)
+    import argparse
+    parser = argparse.ArgumentParser(description="Ingest a Garmin FIT file into the personal DB.")
+    parser.add_argument("fit_file", help="Path to the .fit file")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Run the full intake but skip all database writes.")
+    args = parser.parse_args()
 
-    fit_path = sys.argv[1]
+    fit_path = args.fit_file
+    dry_run = args.dry_run
+
     if not os.path.exists(fit_path):
         print(f"Error: file not found — {fit_path}")
         sys.exit(1)
@@ -634,7 +629,13 @@ def main():
         print("  Aborted — nothing written.")
         sys.exit(0)
 
-    # ── Step 5: Write to Postgres ────────────────────────────
+    # ── Step 5: Write to Postgres (or skip if dry-run) ───────
+    if dry_run:
+        print("\n" + "=" * 56)
+        print("  DRY RUN — no data written to database.")
+        print("=" * 56 + "\n")
+        return
+
     print("\n  Connecting to database ...")
     conn = get_connection()
 
