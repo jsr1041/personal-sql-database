@@ -1,0 +1,2 @@
+ALTER TABLE gear
+    ADD COLUMN IF NOT EXISTS is_active BOOLEAN;
