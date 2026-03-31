@@ -415,10 +415,16 @@ def run_intake_interview():
         "One-sentence summary of this workout:",
     )
 
+    gear_name = ask(
+        "Primary gear used (optional, enter exact gear name from gear table):",
+        required=False, allow_empty=True,
+    )
+
     exercise_extras = {
         "subtype_override": workout_type,   # may override FIT sub_sport
         "planned": planned == "y",
         "terrain": terrain,
+        "gear_name": gear_name,
     }
 
     analysis_data = {
@@ -451,6 +457,8 @@ def print_write_summary(exercise_fields, exercise_extras, analysis_data, trackpo
     print(f"    activity_date    : {exercise_fields['activity_date']}")
     print(f"    type_of_activity : {exercise_fields['type_of_activity']}")
     print(f"    subtype          : {exercise_extras['subtype_override']}")
+    print(f"    garmin_fit_file  : {exercise_fields.get('garmin_fit_file')}")
+    print(f"    primary_gear     : {exercise_extras.get('gear_name') or 'None'}")
     print(f"    distance_miles   : {exercise_fields['distance_miles']}")
     print(f"    duration_minutes : {exercise_fields['duration_minutes']}")
     print(f"    avg_hr / max_hr  : {exercise_fields['average_heart_rate']} / {exercise_fields['max_heart_rate']}")
@@ -497,6 +505,7 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             average_cadence, average_power, max_power,
             calories, tss_score, num_laps,
             avg_vertical_ratio, avg_stance_time_balance, avg_step_length_mm,
+            garmin_fit_file,
             source_system, source_object
         ) VALUES (
             %(day_id)s, %(week_id)s, %(activity_date)s,
@@ -506,6 +515,7 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             %(average_cadence)s, %(average_power)s, %(max_power)s,
             %(calories)s, %(tss_score)s, %(num_laps)s,
             %(avg_vertical_ratio)s, %(avg_stance_time_balance)s, %(avg_step_length_mm)s,
+            %(garmin_fit_file)s,
             %(source_system)s, %(source_object)s
         )
         RETURNING exercise_id;
@@ -520,6 +530,51 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
     }
     cur.execute(sql, params)
     return cur.fetchone()[0]
+
+
+def resolve_gear_id_by_name(conn, gear_name):
+    """Return gear_id for an exact (case-insensitive) gear name, else None."""
+    if not gear_name:
+        return None
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT gear_id
+            FROM gear
+            WHERE lower(name) = lower(%s)
+              AND is_deleted = FALSE
+            LIMIT 1
+            """,
+            (gear_name,),
+        )
+        row = cur.fetchone()
+    return row[0] if row else None
+
+
+def insert_exercise_gear(cur, exercise_id, gear_id):
+    """Insert primary gear used for this exercise."""
+    cur.execute(
+        """
+        INSERT INTO exercise_gear (
+            exercise_id, gear_id, usage_role, is_primary_gear,
+            source_system, source_object
+        ) VALUES (
+            %s, %s, %s, %s, %s, %s
+        )
+        ON CONFLICT (exercise_id, gear_id) DO UPDATE SET
+            usage_role = EXCLUDED.usage_role,
+            is_primary_gear = EXCLUDED.is_primary_gear,
+            updated_at = now();
+        """,
+        (
+            exercise_id,
+            gear_id,
+            "primary",
+            True,
+            "manual_intake",
+            "ingest_fit_workout.py",
+        ),
+    )
 
 
 def insert_trackpoints(cur, exercise_id, trackpoints):
@@ -609,6 +664,7 @@ def main():
     print(f"\nParsing {fit_path} ...")
     session_data, trackpoints = parse_fit(fit_path)
     exercise_fields = extract_exercise_fields(session_data)
+    exercise_fields["garmin_fit_file"] = os.path.basename(fit_path)
     tp_rows = extract_trackpoints(trackpoints)
 
     # ── Step 2: Preview ─────────────────────────────────────
@@ -660,6 +716,16 @@ def main():
                 # Insert exercise
                 exercise_id = insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id)
                 print(f"  ✓ exercise inserted — exercise_id = {exercise_id}")
+
+                # Insert exercise_gear (if a gear was provided and matched)
+                gear_name = exercise_extras.get("gear_name")
+                if gear_name:
+                    gear_id = resolve_gear_id_by_name(conn, gear_name)
+                    if gear_id:
+                        insert_exercise_gear(cur, exercise_id, gear_id)
+                        print(f"  ✓ exercise_gear inserted — gear_id = {gear_id} ({gear_name})")
+                    else:
+                        print(f"  Warning: gear '{gear_name}' not found; no exercise_gear row inserted.")
 
                 # Insert trackpoints
                 insert_trackpoints(cur, exercise_id, tp_rows)
