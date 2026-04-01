@@ -39,6 +39,7 @@ import math
 import argparse
 import logging
 from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import psycopg2
@@ -66,6 +67,8 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # CONSTANTS
 # ---------------------------------------------------------------------------
+
+LOCAL_TZ = ZoneInfo("America/Denver")
 
 FIT_EPOCH = 631065600
 GLOBAL_MSG_SESSION = 18
@@ -239,7 +242,7 @@ def extract_session(session, record_rows, file_info):
     if started_at is None and record_rows:
         started_at = record_rows[0]["recorded_at"]
 
-    measurement_date = started_at.date() if started_at else None
+    measurement_date = started_at.astimezone(LOCAL_TZ).date() if started_at else None
     duration_seconds = record_rows[-1]["elapsed_seconds"] if len(record_rows) > 1 else None
 
     serial = _valid_uint32(file_info.get(3))
