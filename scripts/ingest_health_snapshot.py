@@ -492,7 +492,14 @@ def main():
         "--dry-run", action="store_true",
         help="Parse and preview only — do not write to the database"
     )
+    parser.add_argument(
+        "--timezone", default="America/Denver",
+        help="Local timezone for date calculation (default: America/Denver)"
+    )
     args = parser.parse_args()
+
+    global LOCAL_TZ
+    LOCAL_TZ = ZoneInfo(args.timezone)
 
     if not os.path.exists(args.fit_path):
         print(f"Error: file not found — {args.fit_path}")
