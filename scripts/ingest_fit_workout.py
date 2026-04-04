@@ -37,6 +37,60 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ---------------------------------------------------------------------------
+# ACTIVITY TYPE / SUBTYPE HIERARCHY
+# ---------------------------------------------------------------------------
+
+SUBTYPES = {
+    "Run":    ["Trail Run", "Road Run", "Treadmill"],
+    "Walk":   [],
+    "Hike":   ["Backpacking", "Hike", "Mountaineering"],
+    "Ski":    ["Resort Skiing", "Backcountry Skiing", "Resort Uphilling", "Nordic Skiing"],
+    "Climb":  ["Indoors - Bouldering", "Indoors - Ropes",
+               "Outdoors - Cragging", "Outdoors - Multipitch", "Outdoors - Bouldering"],
+    "Bike":   ["Road Ride", "Mountain Bike Ride"],
+    "Swim":   ["Pool Swim", "Open Water Swim"],
+    "Gym":    ["Exercise Equipment", "Free Weights"],
+    "Rowing": [],
+}
+ACTIVITY_TYPES = list(SUBTYPES.keys())
+
+# Map raw FIT sport strings → canonical type_of_activity
+FIT_TYPE_MAP = {
+    "running":           "Run",
+    "cycling":           "Bike",
+    "hiking":            "Hike",
+    "walking":           "Walk",
+    "swimming":          "Swim",
+    "rock_climbing":     "Climb",
+    "fitness_equipment": "Gym",
+    "training":          "Gym",
+    "skiing":            "Ski",
+    "alpine_skiing":     "Ski",
+    "cross_country_skiing": "Ski",
+    "rowing":            "Rowing",
+}
+
+# Map raw FIT sub_sport strings → canonical subtype_of_activity
+FIT_SUBTYPE_MAP = {
+    "trail":           "Trail Run",
+    "road":            "Road Run",
+    "treadmill":       "Treadmill",
+    "mountain":        "Mountain Bike Ride",
+    "road_cycling":    "Road Ride",
+    "alpine_skiing":   "Resort Skiing",
+    "backcountry":     "Backcountry Skiing",
+    "nordic_skiing":   "Nordic Skiing",
+    "lap_swimming":    "Pool Swim",
+    "open_water":      "Open Water Swim",
+    "rock_climbing":   "Outdoors - Cragging",
+    "bouldering":      "Outdoors - Bouldering",
+    "indoor_climbing": "Indoors - Ropes",
+    "exercise_equipment": "Exercise Equipment",
+    "free_weights":    "Free Weights",
+}
+
+
+# ---------------------------------------------------------------------------
 # DB CONNECTION
 # ---------------------------------------------------------------------------
 
@@ -119,9 +173,9 @@ def extract_exercise_fields(session_data):
                 return v
         return None
 
-    # Sport / activity type
-    sport = get("sport") or "running"
-    sub_sport = get("sub_sport")
+    # Sport / activity type — map raw FIT values to canonical hierarchy
+    sport_raw = str(get("sport") or "").replace("Sport.", "").lower()
+    sub_sport_raw = str(get("sub_sport") or "").replace("SubSport.", "").lower()
 
     # Distances and durations
     total_distance_m = get("total_distance")          # meters (StandardUnits)
@@ -168,9 +222,14 @@ def extract_exercise_fields(session_data):
     # TSS (if present — Garmin sometimes includes training_stress_score)
     tss = get("training_stress_score")
 
+    canonical_type = FIT_TYPE_MAP.get(sport_raw)
+    canonical_subtype = FIT_SUBTYPE_MAP.get(sub_sport_raw) if sub_sport_raw else None
+
     return {
-        "type_of_activity": str(sport).replace("Sport.", "").lower() if sport else None,
-        "subtype_of_activity": str(sub_sport).replace("SubSport.", "").lower() if sub_sport else None,
+        "type_of_activity": canonical_type,
+        "subtype_of_activity": canonical_subtype,
+        "_fit_sport_raw": sport_raw,
+        "_fit_sub_sport_raw": sub_sport_raw,
         "activity_date": activity_date,
         "distance_miles": distance_miles,
         "duration_minutes": duration_minutes,
@@ -324,7 +383,7 @@ def ask(prompt, required=True, cast=None, choices=None, allow_empty=False):
                 return user_input
 
 
-def run_intake_interview():
+def run_intake_interview(fit_type=None, fit_subtype=None):
     """
     Guided intake interview that collects all workout_analysis fields
     plus the exercise fields the FIT file cannot provide.
@@ -338,20 +397,28 @@ def run_intake_interview():
     # --- exercise extras ---
     print("\n── Activity Context ──────────────────────────────────")
 
-    workout_type = ask(
-        "Workout type:",
-        choices=["Easy", "Recovery", "Long Run", "Tempo", "Threshold",
-                 "Interval", "Race", "Strength", "Trail", "Other"],
+    # Type of activity
+    if fit_type:
+        print(f"  (FIT parsed: {fit_type or '?'} / {fit_subtype or 'none'})")
+    type_of_activity = ask(
+        "Type of activity:",
+        choices=ACTIVITY_TYPES,
     )
+
+    # Subtype — only if subtypes are defined for the chosen type
+    subtype_options = SUBTYPES.get(type_of_activity, [])
+    if subtype_options:
+        subtype_of_activity = ask(
+            "Subtype:",
+            choices=subtype_options,
+            allow_empty=True,
+        )
+    else:
+        subtype_of_activity = None
 
     planned = ask(
         "Did this match a planned workout? (y/n)",
         choices=["y", "n"],
-    )
-
-    terrain = ask(
-        "Terrain:",
-        choices=["Road", "Trail", "Track", "Treadmill", "Mixed"],
     )
 
     # --- workout_analysis fields ---
@@ -421,10 +488,10 @@ def run_intake_interview():
     )
 
     exercise_extras = {
-        "subtype_override": workout_type,   # may override FIT sub_sport
-        "planned": planned == "y",
-        "terrain": terrain,
-        "gear_name": gear_name,
+        "type_override":    type_of_activity,
+        "subtype_override": subtype_of_activity,
+        "planned":          planned == "y",
+        "gear_name":        gear_name,
     }
 
     analysis_data = {
@@ -455,8 +522,8 @@ def print_write_summary(exercise_fields, exercise_extras, analysis_data, trackpo
     print("=" * 56)
     print("\n  exercise table:")
     print(f"    activity_date    : {exercise_fields['activity_date']}")
-    print(f"    type_of_activity : {exercise_fields['type_of_activity']}")
-    print(f"    subtype          : {exercise_extras['subtype_override']}")
+    print(f"    type_of_activity : {exercise_extras['type_override']}")
+    print(f"    subtype          : {exercise_extras['subtype_override'] or 'None'}")
     print(f"    garmin_fit_file  : {exercise_fields.get('garmin_fit_file')}")
     print(f"    primary_gear     : {exercise_extras.get('gear_name') or 'None'}")
     print(f"    distance_miles   : {exercise_fields['distance_miles']}")
@@ -522,6 +589,7 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
     """
     params = {
         **exercise_fields,
+        "type_of_activity":    exercise_extras["type_override"],
         "subtype_of_activity": exercise_extras["subtype_override"],
         "day_id": day_id,
         "week_id": week_id,
@@ -676,7 +744,10 @@ def main():
         sys.exit(0)
 
     # ── Step 3: Intake interview ─────────────────────────────
-    exercise_extras, analysis_data = run_intake_interview()
+    exercise_extras, analysis_data = run_intake_interview(
+        fit_type=exercise_fields.get("type_of_activity"),
+        fit_subtype=exercise_fields.get("subtype_of_activity"),
+    )
 
     # ── Step 4: Write summary + final confirmation ───────────
     print_write_summary(exercise_fields, exercise_extras, analysis_data, len(tp_rows))
@@ -738,8 +809,8 @@ def main():
         print("\n" + "=" * 56)
         print(f"  DONE — Exercise #{exercise_id} logged successfully.")
         print(f"  {exercise_fields['distance_miles']} mi "
-              f"| {exercise_extras['subtype_override']} "
-              f"| {exercise_extras['terrain']} "
+              f"| {exercise_extras['type_override']} "
+              f"| {exercise_extras['subtype_override'] or 'no subtype'} "
               f"| RPE {analysis_data['perceived_level_of_effort']} "
               f"| {analysis_data['session_quality']}")
         print("=" * 56 + "\n")
