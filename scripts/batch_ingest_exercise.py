@@ -79,6 +79,168 @@ def get_connection():
 
 
 # ---------------------------------------------------------------------------
+# ACTIVITY TYPE MAPPING
+# Maps raw Garmin FIT (sport, sub_sport) → (type_of_activity, subtype_of_activity)
+# using John's canonical taxonomy.
+#
+# type_of_activity values : Run, Walk, Hike, Ski, Climb, Bike, Swim, Gym, Rowing
+# subtype_of_activity     : per-type values defined below; None = no subtype
+#
+# Lookup key: (sport_str, sub_sport_str) — both lowercased, SubSport./Sport. stripped
+# Falls back to (sport_str, None) if exact sub_sport match not found.
+# Falls back to raw Garmin values if no mapping found at all.
+# ---------------------------------------------------------------------------
+
+ACTIVITY_TYPE_MAP = {
+    # ── Running ──────────────────────────────────────────────────────────────
+    ("running", "generic"):         ("Run", "Road Run"),
+    ("running", "road"):            ("Run", "Road Run"),
+    ("running", "trail"):           ("Run", "Trail Run"),
+    ("running", "treadmill"):       ("Run", "Treadmill"),
+    ("running", "track"):           ("Run", "Road Run"),
+    ("running", "indoor_track"):    ("Run", "Treadmill"),
+    ("running", "ultra"):           ("Run", "Trail Run"),
+    ("running", None):              ("Run", "Road Run"),
+
+    # ── Walking ───────────────────────────────────────────────────────────────
+    ("walking", "generic"):         ("Walk", None),
+    ("walking", "casual_walking"):  ("Walk", None),
+    ("walking", "speed_walking"):   ("Walk", None),
+    ("walking", None):              ("Walk", None),
+
+    # ── Hiking ───────────────────────────────────────────────────────────────
+    ("hiking", "generic"):          ("Hike", "Hike"),
+    ("hiking", "hiking"):           ("Hike", "Hike"),
+    ("hiking", "trail"):            ("Hike", "Hike"),
+    ("hiking", None):               ("Hike", "Hike"),
+    ("mountaineering", "generic"):  ("Hike", "Mountaineering"),
+    ("mountaineering", None):       ("Hike", "Mountaineering"),
+
+    # ── Skiing ───────────────────────────────────────────────────────────────
+    ("alpine_skiing", "generic"):       ("Ski", "Resort Skiing"),
+    ("alpine_skiing", "resort"):        ("Ski", "Resort Skiing"),
+    ("alpine_skiing", "backcountry"):   ("Ski", "Backcountry Skiing"),
+    ("alpine_skiing", "skate_skiing"):  ("Ski", "Nordic Skiing"),
+    ("alpine_skiing", None):            ("Ski", "Resort Skiing"),
+    ("cross_country_skiing", "generic"):    ("Ski", "Nordic Skiing"),
+    ("cross_country_skiing", "classic"):    ("Ski", "Nordic Skiing"),
+    ("cross_country_skiing", "skate"):      ("Ski", "Nordic Skiing"),
+    ("cross_country_skiing", None):         ("Ski", "Nordic Skiing"),
+    ("snowshoeing", "generic"):         ("Hike", "Hike"),
+    ("snowshoeing", None):              ("Hike", "Hike"),
+
+    # ── Climbing ─────────────────────────────────────────────────────────────
+    ("rock_climbing", "generic"):       ("Climb", "Outdoors - Cragging"),
+    ("rock_climbing", "indoor"):        ("Climb", "Indoors - Ropes"),
+    ("rock_climbing", "bouldering"):    ("Climb", "Outdoors - Bouldering"),
+    ("rock_climbing", "68"):            ("Climb", "Outdoors - Cragging"),  # numeric sub_sport
+    ("rock_climbing", None):            ("Climb", "Outdoors - Cragging"),
+
+    # ── Cycling ──────────────────────────────────────────────────────────────
+    ("cycling", "generic"):             ("Bike", "Road Ride"),
+    ("cycling", "road"):                ("Bike", "Road Ride"),
+    ("cycling", "mountain"):            ("Bike", "Mountain Bike Ride"),
+    ("cycling", "indoor_cycling"):      ("Bike", "Road Ride"),
+    ("cycling", "spin"):                ("Bike", "Road Ride"),
+    ("cycling", "e_bike_fitness"):      ("Bike", "Road Ride"),
+    ("cycling", "e_bike_mountain"):     ("Bike", "Mountain Bike Ride"),
+    ("cycling", "cyclocross"):          ("Bike", "Road Ride"),
+    ("cycling", "gravel_cycling"):      ("Bike", "Road Ride"),
+    ("cycling", None):                  ("Bike", "Road Ride"),
+    # TCX "Biking" sport tag
+    ("biking", "generic"):              ("Bike", "Road Ride"),
+    ("biking", None):                   ("Bike", "Road Ride"),
+
+    # ── Swimming ─────────────────────────────────────────────────────────────
+    ("swimming", "generic"):            ("Swim", "Pool Swim"),
+    ("swimming", "lap_swimming"):       ("Swim", "Pool Swim"),
+    ("swimming", "open_water"):         ("Swim", "Open Water Swim"),
+    ("swimming", None):                 ("Swim", "Pool Swim"),
+
+    # ── Gym / Fitness Equipment ───────────────────────────────────────────────
+    ("training", "generic"):            ("Gym", "Exercise Equipment"),
+    ("training", "strength_training"):  ("Gym", "Free Weights"),
+    ("training", "cardio_training"):    ("Gym", "Exercise Equipment"),
+    ("training", None):                 ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", "generic"):   ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", "stair_climbing"): ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", "elliptical"):     ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", None):        ("Gym", "Exercise Equipment"),
+    ("gym_and_fitness", "generic"):     ("Gym", "Exercise Equipment"),
+    ("gym_and_fitness", None):          ("Gym", "Exercise Equipment"),
+    ("strength_training", "generic"):   ("Gym", "Free Weights"),
+    ("strength_training", None):        ("Gym", "Free Weights"),
+    ("yoga", "generic"):                ("Gym", "Exercise Equipment"),
+    ("yoga", None):                     ("Gym", "Exercise Equipment"),
+    ("cardio", "generic"):              ("Gym", "Exercise Equipment"),
+    ("cardio", None):                   ("Gym", "Exercise Equipment"),
+    ("hiit", "generic"):                ("Gym", "Exercise Equipment"),
+    ("hiit", None):                     ("Gym", "Exercise Equipment"),
+
+    # ── Rowing ───────────────────────────────────────────────────────────────
+    ("rowing", "generic"):              ("Rowing", None),
+    ("rowing", "indoor_rowing"):        ("Rowing", None),
+    ("rowing", None):                   ("Rowing", None),
+    ("paddling", "generic"):            ("Rowing", None),
+    ("paddling", None):                 ("Rowing", None),
+
+    # ── Additional sport codes from Garmin device profile ────────────────────
+    ("snowboarding", "generic"):        ("Ski", "Resort Skiing"),
+    ("snowboarding", "backcountry"):    ("Ski", "Backcountry Skiing"),
+    ("snowboarding", None):             ("Ski", "Resort Skiing"),
+    ("snowshoeing", "generic"):         ("Hike", "Hike"),
+    ("snowshoeing", None):              ("Hike", "Hike"),
+    ("ice_skating", "generic"):         ("Gym", "Exercise Equipment"),
+    ("inline_skating", "generic"):      ("Gym", "Exercise Equipment"),
+    ("stand_up_paddleboarding", "generic"): ("Rowing", None),
+    ("kayaking", "generic"):            ("Rowing", None),
+    ("floor_climbing", "generic"):      ("Climb", "Indoors - Bouldering"),
+    ("rock_climbing", "69"):            ("Climb", "Indoors - Bouldering"),  # Bouldering numeric
+    ("boxing", "generic"):              ("Gym", "Exercise Equipment"),
+    ("training", "yoga"):               ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", "pilates"):   ("Gym", "Exercise Equipment"),
+    ("cycling", "indoor_cycling"):      ("Bike", "Road Ride"),
+    ("cycling", "mountain"):            ("Bike", "Mountain Bike Ride"),
+    ("cycling", "e_bike_mountain"):     ("Bike", "Mountain Bike Ride"),
+    ("cycling", "commuting"):           ("Bike", "Road Ride"),
+    ("cycling", "mixed_surface"):       ("Bike", "Road Ride"),
+    ("cycling", "road"):                ("Bike", "Road Ride"),
+    ("cycling", "bmx"):                 ("Bike", "Mountain Bike Ride"),
+    ("walking", "indoor_walking"):      ("Walk", None),
+    ("running", "67"):                  ("Run", "Trail Run"),   # Ultra Run numeric sub_sport
+    ("running", "virtual_activity"):    ("Run", "Treadmill"),
+    ("running", "indoor_running"):      ("Run", "Treadmill"),
+}
+
+
+def map_activity_type(raw_sport, raw_sub_sport):
+    """
+    Resolve (type_of_activity, subtype_of_activity) from raw Garmin sport strings.
+    Tries exact (sport, sub_sport) match first, then (sport, None) fallback,
+    then returns raw values if nothing matches.
+    """
+    sport = (raw_sport or "").replace("Sport.", "").lower().strip()
+    sub   = (raw_sub_sport or "").replace("SubSport.", "").lower().strip() or None
+
+    # Exact match
+    result = ACTIVITY_TYPE_MAP.get((sport, sub))
+    if result:
+        return result
+
+    # Fallback: sport only
+    result = ACTIVITY_TYPE_MAP.get((sport, None))
+    if result:
+        # Keep the mapped type but use None for subtype (no sub_sport match)
+        return (result[0], None)
+
+    # No mapping found — return cleaned raw values so data isn't lost
+    return (
+        sport.title() if sport else None,
+        sub.replace("_", " ").title() if sub else None,
+    )
+
+
+# ---------------------------------------------------------------------------
 # SHARED FIT PARSING  (mirrors ingest_fit_workout.py — keep in sync)
 # ---------------------------------------------------------------------------
 
@@ -137,12 +299,13 @@ def extract_exercise_fields_fit(session_data, filename):
         activity_date = start_ts.date()
 
     vr_raw = get("avg_vertical_ratio")
+    type_of_activity, subtype_of_activity = map_activity_type(sport, sub)
 
     return {
         "garmin_fit_file":         filename,
         "activity_date":           activity_date,
-        "type_of_activity":        str(sport).replace("Sport.", "").lower() if sport else None,
-        "subtype_of_activity":     str(sub).replace("SubSport.", "").lower() if sub else None,
+        "type_of_activity":        type_of_activity,
+        "subtype_of_activity":     subtype_of_activity,
         "distance_miles":          round(dist_m / 1609.344, 2) if dist_m else None,
         "duration_minutes":        round(timer_s / 60, 2) if timer_s else None,
         "total_elapsed_time":      round(elapsed_s / 60, 2) if elapsed_s else None,
@@ -262,7 +425,9 @@ def parse_tcx(tcx_path):
 
     act = activities[0]
     sport = act.get("Sport", "")
-    exercise_fields["type_of_activity"] = sport.lower()
+    type_of_activity, subtype_of_activity = map_activity_type(sport, None)
+    exercise_fields["type_of_activity"]    = type_of_activity
+    exercise_fields["subtype_of_activity"] = subtype_of_activity
 
     laps = act.findall("tcx:Lap", ns)
     if not laps:
@@ -496,7 +661,7 @@ def insert_trackpoints(cur, exercise_id, trackpoints):
 # PER-FILE PROCESSOR
 # ---------------------------------------------------------------------------
 
-def process_file(filepath, filename, fmt, dry_run, conn):
+def process_file(filepath, filename, fmt, dry_run, conn, sport_override=None):
     """
     Parse one file, run duplicate check, write to DB (unless dry_run).
     Returns a result dict for the run log.
@@ -521,6 +686,7 @@ def process_file(filepath, filename, fmt, dry_run, conn):
             exercise_fields = extract_exercise_fields_fit(session_data, filename)
             trackpoints = extract_trackpoints_fit(tp_raw)
         elif fmt == "tcx":
+
             exercise_fields, trackpoints = parse_tcx(filepath)
         else:
             result["status"] = "skipped"
@@ -530,6 +696,13 @@ def process_file(filepath, filename, fmt, dry_run, conn):
         result["status"] = "error_parse"
         result["note"] = str(e)[:120]
         return result
+
+    # Apply sport_override from manifest (e.g. cycling misclassified as running)
+    # Run through the mapping so the canonical taxonomy is preserved
+    if sport_override:
+        mapped_type, mapped_sub = map_activity_type(sport_override, None)
+        exercise_fields["type_of_activity"]    = mapped_type
+        exercise_fields["subtype_of_activity"] = mapped_sub
 
     result["activity_date"]    = str(exercise_fields.get("activity_date") or "")
     result["type_of_activity"] = exercise_fields.get("type_of_activity") or ""
@@ -624,6 +797,11 @@ def main():
              "Matches the 'sport' column in the manifest.",
     )
     parser.add_argument(
+        "--year", type=int, default=None,
+        help="Filter to a specific calendar year (e.g. --year 2026). "
+             "Matches the year portion of started_at in the manifest.",
+    )
+    parser.add_argument(
         "--log-dir", default=".",
         help="Directory to write the run log CSV (default: current directory)",
     )
@@ -647,6 +825,13 @@ def main():
     if args.sport:
         exercise_rows = [r for r in exercise_rows if r.get("sport", "") == args.sport]
 
+    # Year filter — matches against started_at column (YYYY-MM-DD... prefix)
+    if args.year:
+        exercise_rows = [
+            r for r in exercise_rows
+            if r.get("started_at", "").startswith(str(args.year))
+        ]
+
     # Limit
     if args.limit:
         exercise_rows = exercise_rows[:args.limit]
@@ -658,6 +843,7 @@ def main():
     print(f"{'=' * 60}")
     print(f"  Manifest    : {args.manifest}")
     print(f"  Garmin dir  : {args.garmin_dir}")
+    print(f"  Year filter : {args.year or 'all'}")
     print(f"  Sport filter: {args.sport or 'all'}")
     print(f"  Files to process: {total}")
     if args.dry_run:
@@ -715,7 +901,9 @@ def main():
                 "note": "file not found on disk",
             }
         else:
-            result = process_file(filepath, filename, fmt, args.dry_run, conn)
+            sport_override = row.get("sport_override", "").strip() or None
+            result = process_file(filepath, filename, fmt, args.dry_run, conn,
+                                  sport_override=sport_override)
 
         status = result["status"]
         counters[status] = counters.get(status, 0) + 1

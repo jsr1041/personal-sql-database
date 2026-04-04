@@ -1,2 +1,4 @@
 .env
 .sfdx/
+Ingestion_Outputs
+--manifest
