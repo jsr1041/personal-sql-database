@@ -2,3 +2,4 @@
 .sfdx/
 Ingestion_Outputs
 --manifest
+__pycache__
