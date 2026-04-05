@@ -1,0 +1,8647 @@
+{
+  "meta": {
+    "total_fit_activities": 1436,
+    "skipped_no_session": 0,
+    "errors": 0,
+    "fit_year_summary": {
+      "2019": 1,
+      "2020": 173,
+      "2021": 182,
+      "2022": 113,
+      "2023": 235,
+      "2024": 327,
+      "2025": 333,
+      "2026": 72
+    },
+    "fit_activity_type_summary": {
+      "running": 1059,
+      "alpine_skiing": 159,
+      "hiking": 131,
+      "walking": 63,
+      "cycling": 10,
+      "generic": 6,
+      "rock_climbing": 5,
+      "rowing": 3
+    },
+    "skipped_files": [],
+    "error_files": []
+  },
+  "fit_files": [
+    {
+      "filename": "10016393622.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10016393622_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10022790415.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10022790415_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10029655638.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10029655638_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10036188870.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10036188870_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10069737390.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10069737390_1.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10075140533.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10075140533_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10085528230.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10085528230_1.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10091427883.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10091427883_1.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10108246200.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10114985827.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10121734073.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10135358497.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10151120623.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10154095203.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10161155509.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10174909272.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10181315779.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10187395549.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10200603730.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10207724589.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10217036740.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10220811763.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10246542575.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10253462912.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10260368912.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10267353889.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10283435294.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10293313902.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10300335209.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10307460404.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10314952814.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10330964121.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10341739701.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10348787459.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10356112693.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10363234953.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10371830365.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10390769784.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10397978481.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10405384149.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10412346111.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10420163645.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10438460440.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10444824539.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10493725901.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10500755182.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10507571773.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10514214107.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10538778176.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10542055348.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10549065136.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10555910883.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10564790183.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10579596445.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10582870343.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10589496675.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10596424083.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10602916688.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10610365027.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10616976689.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10629220679.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10635975293.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10642733067.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10649572234.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10657342717.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10665453568.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10679079606.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10682619259.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10689530363.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10695960796.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10703711178.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10710479737.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10718730263.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10721920584.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10728531455.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10735129783.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10741562955.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10747577822.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10763497966.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10766432202.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10772656799.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10776263704.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10779227510.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10785158433.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10792747689.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10805810719.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10809106252.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10812545203.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10815302662.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10821756767.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10827615481.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10834943628.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10841712297.fit",
+      "year": 2023,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10848308570.fit",
+      "year": 2023,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10854252325.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10860474948.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10866895739.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10869530399.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10877149850.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10883650636.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10889554255.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10893614745.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10900176984.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10906405736.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10914816321.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10919458775.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10931480705.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10935843421.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10941877465.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10948132207.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10955408254.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10961653634.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10974273383.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "10977504422.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11014872815.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11019970668.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11025976059.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11031709198.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11036936547.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11047086244.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11053420529.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11057610187.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11061634588.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11068947389.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11072700442.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11079144713.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11084484582.fit",
+      "year": 2023,
+      "activity_type": "rock_climbing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11090626410.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11096241516.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11101857478.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11107325468.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11112885478.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11117165301.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11123027677.fit",
+      "year": 2023,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11129154798.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11134390288.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11139740323.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11144724857.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11149659872.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11149722486.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11157197469.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11162420263.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11162614941.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11168994499.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11181383816.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11181703934.fit",
+      "year": 2023,
+      "activity_type": "rock_climbing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11186439139.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11192718437.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11193310824.fit",
+      "year": 2023,
+      "activity_type": "rock_climbing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11198473314.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11205586298.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11211220787.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11216701544.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11223557879.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11229247774.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11236882071.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11243752451.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11257949238.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11264810581.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11270073183.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11278350576.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11283200483.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11299472199.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11305259500.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11311458066.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11312915278.fit",
+      "year": 2024,
+      "activity_type": "rock_climbing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11317380112.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11322260372.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11329328197.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11337420996.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11343729243.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11350794654.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11354465431.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11361421891.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11365125558.fit",
+      "year": 2024,
+      "activity_type": "rock_climbing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11367927614.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11375409865.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11376120966.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11383311288.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11392332872.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11395950309.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11402981323.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11468568998.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11474562933.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11481540267.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11488647541.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11494560145.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11498678597.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11506027868.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11512241039.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11521780865.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11529007854.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11535794861.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11542326678.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11548436853.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11554251987.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11561054513.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11570126686.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11577309422.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11583853555.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11590884599.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11595467751.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11603263721.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11609797950.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11617205042.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11626108337.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11642301523.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11650974736.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11659001272.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11665998164.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11673829751.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11686947742.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11690249621.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11697392250.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11704882010.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11712088265.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11723967108.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11733166596.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11749023094.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11757070469.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11764794546.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11771752240.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11775457850.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11782622534.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11784870049.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11798376968.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11800005014.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11806626564.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11812793890.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11817281017.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11826037172.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11842996561.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11849107153.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11859503479.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11866515339.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11869939861.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11874302033.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11879409064.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11886727384.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11900586169.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11908111455.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11915936246.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11923625914.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11951005631.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11954990445.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11967003232.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11970477931.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11981868249.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11986889406.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11993050655.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11995393884.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "11996227001.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12003082441.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12011584357.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12027338765.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12030791792.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12038531837.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12061701508.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12073996806.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12079010960.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12086753858.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12090817907.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12096951544.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12104301819.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12113207739.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12117782884.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12125489588.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12136163385.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12138179125.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12143212298.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12150024655.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12157687775.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12174419613.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12182863957.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12191192637.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12199081843.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12208106867.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12223908549.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12231065934.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12239012677.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12254985629.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12262810326.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12280526005.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12286523350.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12289179097.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12294219647.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12302477700.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12310583917.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12326355360.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12337484201.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12350284387.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12359233021.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12367706001.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12374572404.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12388415727.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12407538918.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12416133604.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12424231678.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12431663957.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12442197966.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12450207151.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12463436371.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12474261100.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12511229048.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12519748237.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12528104322.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12536372649.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12575734483.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12584201533.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12594478336.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12603028984.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12611261073.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12611274413.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12619210827.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12633379552.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12641878822.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12650244472.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12658504716.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12669813379.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12679396670.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12682685452.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12691334126.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12700194629.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12708912005.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12721831839.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12727984147.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12743265569.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12752602006.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12765636884.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12769657275.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12782502904.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12803324391.fit",
+      "year": 2024,
+      "activity_type": "rowing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12821234917.fit",
+      "year": 2024,
+      "activity_type": "rowing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12830436865.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12838617105.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12850650047.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12858904956.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12864326666.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12873781836.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12887667378.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12892238729.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12901569739.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12911417904.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12927179990.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12936011427.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12944860083.fit",
+      "year": 2024,
+      "activity_type": "rowing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12949629084.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12954721065.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12965018705.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12977991907.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "12992624157.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13002344268.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13012167559.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13020869588.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13029703961.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13050810501.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13050812493.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13055087813.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13064295511.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13073527514.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13083280128.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13119860199.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13119864323.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13138871203.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13138874085.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13148744036.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13156574750.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13162411124.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13164195026.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13184801795.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13193548650.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13202713296.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13251086504.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13260555664.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13270254110.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13279104313.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13306294806.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13310014366.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13314827769.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13318974416.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13328311449.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13336635045.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13344518305.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13355333843.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13365416517.fit",
+      "year": 2024,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13370027201.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13378995066.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13387957377.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13396499121.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13404868865.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13415853074.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13425590635.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13430841793.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13439564142.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13448275464.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13456488087.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13464805022.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13476936567.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13485764974.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13490448365.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13499245614.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13508192255.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13516756776.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13524747095.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13545540953.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13550139946.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13559114095.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13568519340.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13576932477.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13585422514.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13605630843.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13611163359.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13620007672.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13628917774.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13641143462.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13645418510.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13665226273.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13675014741.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13679646111.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13708121003.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13715774056.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13725875288.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13730189392.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13738589255.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13747309956.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13755495803.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13766455056.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13772666970.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13783037365.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13787588952.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13795722987.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13804013383.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13811521151.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13818992591.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13828717579.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13835743866.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13841633341.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13849550399.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13853526825.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13861431585.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13868569846.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13874525741.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13881260283.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13891268260.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13891443553.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13895791996.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13899250089.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13903763792.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13911603862.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13919293645.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13922347601.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13926541762.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13934993106.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13935195690.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13941600920.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13950938682.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13958807565.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13962878857.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13970211776.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13980688216.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13985954443.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13986685178.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13994661056.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "13999849398.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14006839053.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14015286377.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14022320383.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14031450630.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14035578037.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14042648246.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14049115768.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14059878470.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14065744299.fit",
+      "year": 2024,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14081861991.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14089976623.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14097719700.fit",
+      "year": 2024,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14103288758.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14111552648.fit",
+      "year": 2024,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14122432087.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14128291410.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14137552326.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14149343726.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14156801037.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14158718919.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14164776899.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14180508905.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14184673770.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14193644511.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14203062161.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14215007198.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14225581164.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14232047823.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14241846587.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14251492243.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14261052966.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14274344566.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14294512566.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14302810683.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14313262689.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14317866312.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14326940066.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14336016025.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14349964171.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14358805365.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14363815526.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14383639364.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14393175648.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14407165114.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14417022695.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14427795381.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14437094588.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14446582728.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14457339986.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14467191439.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14485473509.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14496173241.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14500654714.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14510236356.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14524522262.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14533973055.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14540760920.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14549025706.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14550453105.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14562033615.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14570609298.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14577001027.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14587085475.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14596476630.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14618731299.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14630537800.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14635554258.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14645692479.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14655955390.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14666024644.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14674699121.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14686186211.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14695729862.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14704865539.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14714780135.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14729891360.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14769934788.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14775009471.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14785214562.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14795698859.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14805662280.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14815419896.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14826668595.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14844351144.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14854529521.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14870237019.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14876047405.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14881119120.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14888723049.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14898665097.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14910547258.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14915475502.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14925639271.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14936134291.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14946704909.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14956281224.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14969155730.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14980731318.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14991245752.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "14996185028.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15012487131.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15017310944.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15027326447.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15041520299.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15052168085.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15057511326.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15067754852.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15078164728.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15088779369.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15098387219.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15111887672.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15134007859.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15138750697.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15149164083.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15158696151.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15172632629.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15182614886.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15192849930.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15204832075.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15209863768.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15220411782.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15267005331.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15286258869.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15327871277.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15348405870.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15359196851.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15374997448.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15390962784.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15424095602.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15435195456.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15446819412.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15457931582.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15472280075.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15480331688.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15480857515.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15493353911.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15507871785.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15517638263.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15526230157.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15539533461.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15547685413.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15561675374.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15581146135.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15592657502.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15602182095.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15614690617.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15625818055.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15650165414.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15657003050.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15668795535.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15680799154.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15692033053.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15701992452.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15715889877.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15727286819.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15735019034.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15746523000.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15757917450.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15769684760.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15779991381.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15795090766.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15807152066.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15813053562.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15824916099.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15837095907.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15850122094.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15863585419.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15885524496.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15885529691.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15885529802.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15892891180.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15904171283.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15915884048.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15927161106.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15938188332.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15954266377.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15961433969.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15971668217.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15983068707.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "15995257226.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16006174952.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16006650445.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16019158306.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16032888260.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16051740119.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16063514829.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16075735592.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16088075586.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16115249810.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16146612186.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16159362450.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16171893898.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16182958861.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16211084735.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16211089496.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16224310985.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16230162910.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16242479644.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16282078039.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16306635277.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16324873404.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16342639480.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16348442752.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16374326124.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16383195802.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16395424537.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16408545153.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16421459808.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16446015819.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16553736403.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16566704537.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16579422364.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16591492806.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16598540468.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16603705559.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16622619500.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16641243806.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16653855423.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16666375651.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16678143068.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16684192705.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16689989956.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16709716060.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16714991937.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16725068890.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16738941632.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16752178148.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16764953863.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16775251901.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16775862722.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16820068872.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16825630776.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16838309785.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16850204416.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16857082717.fit",
+      "year": 2025,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16861806280.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16877484539.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16887538473.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16889827738.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16903321941.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16908645983.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16920908725.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16932540272.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16944023227.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16955912102.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16961290062.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "16967732417.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17001824022.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17012821074.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17018488343.fit",
+      "year": 2025,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17019038160.fit",
+      "year": 2025,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17023241193.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17035252550.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17050034997.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17068304269.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17080583853.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17091774279.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17102370559.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17128664468.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17128664474.fit",
+      "year": 2025,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17134551125.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17146272348.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17158293195.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17169005341.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17190969227.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17204510463.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17210212984.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17221306389.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17227395040.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17231872508.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17249273129.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17253955029.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17264876776.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17276001432.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17280483624.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17290295494.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17295444514.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17306358223.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17316714659.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17326144997.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17338178150.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17347922115.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17356293764.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17366510782.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17377298631.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17387429869.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17397126930.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17409375044.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17419931687.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17427469677.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17438377265.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17449662831.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17460221984.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17470200331.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17482110368.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17493640856.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17500798020.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17511323730.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17522154957.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17532710209.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17546509837.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17554516900.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17565838133.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17572029437.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17581928636.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17592317557.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17601898907.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17611954014.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17623798942.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17633023888.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17640320043.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17650106065.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17660601315.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17664709893.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17670076455.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17670353829.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17670837286.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17680456390.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17692721575.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17707926838.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17717760998.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17737634906.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17746958473.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17757875963.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17767329893.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17774770182.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17784053054.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17784204514.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17793880740.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17803417221.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17815666333.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17823723962.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17833198729.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17839872332.fit",
+      "year": 2025,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17849011743.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17858312695.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17867470340.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17876253170.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17886868674.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17896735534.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17920915692.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17927977624.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17928193000.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17928456432.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17935721701.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17945913521.fit",
+      "year": 2025,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "17970348540.fit",
+      "year": 2025,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18009605468.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18039071899.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18050241762.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18061933831.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18073388505.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18099015686.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18117546400.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18128789881.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18141159533.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18164444255.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18210988346.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18222356021.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18234457429.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18261086011.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18270914719.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18284547123.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18301261534.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18313909890.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18335507827.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18347985446.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18349756949.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18429301379.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18442072258.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18448013078.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18459280842.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18470957783.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18486123909.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18495524369.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18508733908.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18513996718.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18525507887.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18536368128.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18553570642.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18558804207.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18563298465.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18574990883.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18585225929.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18591854655.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18603877434.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18615531404.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18628301395.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18639272779.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18655951686.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18667566635.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18673962495.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18698924112.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18711738611.fit",
+      "year": 2026,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18727518256.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18738106094.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18749621621.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18758139925.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18770967948.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18783183604.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18800392801.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18800502983.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18810181361.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18819325564.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18847346495.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18853154310.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18865300871.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18877910734.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18890406913.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18907273079.fit",
+      "year": 2026,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18916656550.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18933528895.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18939489488.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18952630291.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18964989583.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18976341750.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "18989186191.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "19002487032.fit",
+      "year": 2026,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "19012671085.fit",
+      "year": 2026,
+      "activity_type": "walking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3336435106.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3355241201.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3358516133.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3384950227.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3403292073.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3426472718.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3442377747.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3445981268.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3452603876.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3458026164.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3464359627.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3468116926.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3475935385.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3485724740.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3487345277.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3491754226.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3508715203.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3522877688.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3527458752.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3537590064.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3545060833.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3557385977.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3559595129.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3570099907.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3577629410.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3583000620.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3594284237.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3596480723.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3601473926.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3606283176.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3611124842.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3631457685.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3631473874.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3634219214.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3639991640.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3645821842.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3651682908.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3673464024.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3678900312.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3684273826.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3689675774.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3707406611.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3712852834.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3718705710.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3724826848.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3730299099.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3752633705.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3758421118.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3764209021.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3769598424.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3789835845.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3792960537.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3798534293.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3803826246.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3808663124.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3833579087.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3835520368.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3840844532.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3852588676.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3862580348.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3867990294.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3881772645.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3884179253.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3905841703.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3911659473.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3917165569.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3937965699.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3943025584.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3948532277.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3953849732.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3980408228.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3985546610.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3990593915.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "3995857997.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4012672072.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4018045875.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4023676271.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4029085408.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4036422223.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4056595561.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4062443333.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4067259917.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4072595993.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4076535280.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4085469089.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4097073467.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4099417229.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4108728527.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4111533559.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4127976068.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4133282773.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4142042343.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4147198994.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4149948244.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4165844148.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4170982192.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4179382248.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4181660101.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4210615811.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4215906938.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4218030970.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4225220783.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4240226681.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4242701308.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4247726161.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4255569804.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4272283820.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4277166076.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4285357987.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4287467265.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4320944361.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4323013115.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4330149117.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4343715787.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4351542295.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4353675525.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4355996863.fit",
+      "year": 2020,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4358969175.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4363436040.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4378917495.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4383704458.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4391415740.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4393618331.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4417073677.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4421976851.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4429198461.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4431287101.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4452448955.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4454410039.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4461479359.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4463473262.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4479781844.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4484797048.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4489536791.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4491587381.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4497891466.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4512638489.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4517311884.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4519439217.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4526313464.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4530205711.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4548979630.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4557518798.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4561346422.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4574020739.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4578810151.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4584599315.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4591260211.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4593731370.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4612277512.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4615393185.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4628097697.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4645927410.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4650717378.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4657966652.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4660682101.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4665346173.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4683606999.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4688535030.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4715529430.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4722119845.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4730873268.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4734742045.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4744604150.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4748189708.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4775860519.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4806187325.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4809921391.fit",
+      "year": 2020,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4814863548.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4818799554.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4841772382.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4846316914.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4851836569.fit",
+      "year": 2020,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4875105248.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4878014811.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4883525844.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4897534564.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4901724391.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4914722499.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4920155971.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4925856624.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4930919751.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4935416880.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4941628223.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4959542529.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4962496397.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4970616471.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4975561086.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4980958235.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "4987191660.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5009994058.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5015304789.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5020279143.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5026006762.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5037744170.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5043870417.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5049484994.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5054164911.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5072354955.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5114742353.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5126295478.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5136744612.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5159040774.fit",
+      "year": 2021,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5186139284.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5212651212.fit",
+      "year": 2021,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5223263539.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5230111796.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5243169789.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5306052017.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5346311794.fit",
+      "year": 2019,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5348942648.fit",
+      "year": 2021,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5354979775.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5381336433.fit",
+      "year": 2021,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5393261900.fit",
+      "year": 2021,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5406109279.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5412328516.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5424239707.fit",
+      "year": 2021,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5435809565.fit",
+      "year": 2021,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5441381645.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5483509494.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5520763703.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5526901049.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5538562223.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5542498680.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5560533609.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5583845490.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5594868990.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5615057916.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5631319154.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5641328298.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5649431113.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5661577558.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5707006673.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5712074749.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5718269727.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5720641310.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5747669725.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5753291438.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5757789779.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5765437439.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5792541913.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5801659037.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5803975499.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5821260238.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5827114277.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5833137943.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5838816959.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5844156878.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5865835058.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5871773284.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5876999883.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5882385832.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5898961480.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5904347611.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5909673447.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5914943204.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5920225280.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5942180954.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5947648767.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5953176911.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5974886893.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5980395563.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5986009842.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5991392923.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "5996810936.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6052488239.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6058049556.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6063454064.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6069205099.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6074570554.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6096866387.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6102610327.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6141970222.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6147852035.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6153198718.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6158579486.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6169934779.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6175514133.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6181225323.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6187048526.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6209480865.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6215278050.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6221223969.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6226802204.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6248591622.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6254176630.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6294248526.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6300332081.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6305942154.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6311234133.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6328675702.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6334088665.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6340258959.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6345232887.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6351154480.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6367277708.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6372893681.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6378657936.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6384164756.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6406122112.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6411535052.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6416977023.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6422123207.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6427136037.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6447883548.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6453255824.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6458429427.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6463507512.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6484836293.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6490045757.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6495106974.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6499952289.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6515736919.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6523560973.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6528541404.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6533334822.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6537568424.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6550911002.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6555903267.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6561112012.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6566063633.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6585552952.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6590258713.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6595360900.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6600254152.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6604928139.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6625216698.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6630178457.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6639695938.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6654360634.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6659131160.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6664150350.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6668876786.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6673332491.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6687833948.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6692465819.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6719142583.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6723650572.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6728175355.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6734539767.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6738558298.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6751355731.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6754565000.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6759237228.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6763449377.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6778579131.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6780901939.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6793889631.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6815573473.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6819789703.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6823778231.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6831136689.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6835067025.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6839551950.fit",
+      "year": 2021,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6847235193.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6851465670.fit",
+      "year": 2021,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6877030582.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6882513100.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6888103608.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6894128699.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6898859691.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6914782910.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6926961702.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6932335732.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6960590657.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6966049179.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6971342339.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6976069836.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6986880741.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6987239143.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "6993596893.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7004775694.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7009991198.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7014685099.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7026096698.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7030621095.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7037293828.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7042390046.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7091034659.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7129257693.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7140391021.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7145313313.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7157169884.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7162113831.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7167139825.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7265928382.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7312280334.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7334860482.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7340255986.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7348896134.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7397120039.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7482573750.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7488965070.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7535327687.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7541410442.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7544171319.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7563823328.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7569768913.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7576394045.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7582993261.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7591437078.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7617967726.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7620965676.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7627250300.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7638606352.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7644277832.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7650492817.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7659273691.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7665258871.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7667550457.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7699698827.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7747148285.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7752456507.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7754960797.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7778450253.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7788362253.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7796318263.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7834791322.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7840652390.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7866203098.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7872061935.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7877870400.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7983893885.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7989347947.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "7995504430.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8001141655.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8051746448.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8058053688.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8070364778.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8073774237.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8080101135.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8086179263.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8123263765.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8197234825.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8210154393.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8241531026.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8247615947.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8253775157.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8259942694.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8290918568.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8296978830.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8447638164.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8506251370.fit",
+      "year": 2022,
+      "activity_type": "cycling",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8512069703.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8528776516.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8535627110.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8547452018.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8563191833.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8569998046.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8575028521.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8597253584.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8615326852.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8623625404.fit",
+      "year": 2022,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8629267221.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8648925734.fit",
+      "year": 2022,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8693270889.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8764881496.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8770150312.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8788423262.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8803992687.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8817815007.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8827582104.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8832218416.fit",
+      "year": 2022,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8840190283.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8879213776.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8883655432.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8902926347.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8908123219.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8918942824.fit",
+      "year": 2022,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8943584338.fit",
+      "year": 2023,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8952923838.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8953354455.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "8960580071.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9002511752.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9008964708.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9017816477.fit",
+      "year": 2023,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9026411651.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9056314122.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9059377925.fit",
+      "year": 2023,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9071411826.fit",
+      "year": 2023,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9128662130.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9142479205.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9155173976.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9158143616.fit",
+      "year": 2023,
+      "activity_type": "generic",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9172119622.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9185966991.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9192356658.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9289895242.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9296459364.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9309498152.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9321043060.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9326490169.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9336541027.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9348947317.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9359800481.fit",
+      "year": 2023,
+      "activity_type": "alpine_skiing",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9366861323.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9413499582.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9419751209.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9431833947.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9438291673.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9443810972.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9496554141.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9509248062.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9523514618.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9528659949.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9546778268.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9553752955.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9560543896.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9567093100.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9573342350.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9578001803.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9579359775.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9585141130.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9598916729.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9604600334.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9604739846.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9609836908.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9617424720.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9623777665.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9629284221.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9635257454.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9649269904.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9655975247.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9662649068.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9669326123.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9675227639.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9681223163.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9695167605.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9698027192.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9739970340.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9752723525.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9771485896.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9779123657.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9785721035.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9793839246.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9834587488.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9841756449.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9851342817.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9860834666.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9906374473.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9927881380.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9934947191.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9977304895.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9990882724.fit",
+      "year": 2023,
+      "activity_type": "running",
+      "file_format": "fit"
+    },
+    {
+      "filename": "9997736676.fit",
+      "year": 2023,
+      "activity_type": "hiking",
+      "file_format": "fit"
+    }
+  ]
+}
