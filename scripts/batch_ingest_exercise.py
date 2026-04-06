@@ -7,12 +7,21 @@ Reads the garmin_manifest.csv produced by classify_garmin_files.py and processes
 all rows where destination == 'exercise' (or override_destination == 'exercise').
 
 Key behaviors:
-  - Idempotent: skips any file whose garmin_fit_file already exists in exercise
+  - Idempotent via two-layer dedup:
+      Layer 1 — source key: skips if (source_system, source_record_id) already exists
+      Layer 2 — fingerprint: enriches existing row with strava_activity_id if a
+                cross-source match is found (same date + type + distance ± 0.1 mi
+                + duration ± 1 min); never inserts a duplicate row
+  - activity_fingerprint stored on every new row for future cross-source linking
   - Non-interactive: no intake interview — workout_analysis rows are NOT written
     (add those later via the normal ingest_fit_workout.py workflow)
   - Dry-run mode: parses and previews everything, writes nothing
   - Limit mode: process only the first N files (useful for test runs)
   - Detailed run log written to a timestamped CSV alongside the manifest
+
+Fingerprint format: YYYY-MM-DD|TypeOfActivity|D.D|MMM
+  distance rounded to 0.1 mi, duration rounded to 1 min
+  Example: 2024-03-15|Run|6.2|52
 
 Usage:
   python batch_ingest_exercise.py --manifest garmin_manifest.csv \\
@@ -133,7 +142,7 @@ ACTIVITY_TYPE_MAP = {
     ("rock_climbing", "generic"):       ("Climb", "Outdoors - Cragging"),
     ("rock_climbing", "indoor"):        ("Climb", "Indoors - Ropes"),
     ("rock_climbing", "bouldering"):    ("Climb", "Outdoors - Bouldering"),
-    ("rock_climbing", "68"):            ("Climb", "Outdoors - Cragging"),  # numeric sub_sport
+    ("rock_climbing", "68"):            ("Climb", "Indoors - Ropes"),  # numeric sub_sport; confirmed indoor on Garmin device
     ("rock_climbing", None):            ("Climb", "Outdoors - Cragging"),
 
     # ── Cycling ──────────────────────────────────────────────────────────────
@@ -146,6 +155,9 @@ ACTIVITY_TYPE_MAP = {
     ("cycling", "e_bike_mountain"):     ("Bike", "Mountain Bike Ride"),
     ("cycling", "cyclocross"):          ("Bike", "Road Ride"),
     ("cycling", "gravel_cycling"):      ("Bike", "Road Ride"),
+    ("cycling", "commuting"):           ("Bike", "Road Ride"),
+    ("cycling", "mixed_surface"):       ("Bike", "Road Ride"),
+    ("cycling", "bmx"):                 ("Bike", "Mountain Bike Ride"),
     ("cycling", None):                  ("Bike", "Road Ride"),
     # TCX "Biking" sport tag
     ("biking", "generic"):              ("Bike", "Road Ride"),
@@ -161,10 +173,12 @@ ACTIVITY_TYPE_MAP = {
     ("training", "generic"):            ("Gym", "Exercise Equipment"),
     ("training", "strength_training"):  ("Gym", "Free Weights"),
     ("training", "cardio_training"):    ("Gym", "Exercise Equipment"),
+    ("training", "yoga"):               ("Gym", "Exercise Equipment"),
     ("training", None):                 ("Gym", "Exercise Equipment"),
     ("fitness_equipment", "generic"):   ("Gym", "Exercise Equipment"),
     ("fitness_equipment", "stair_climbing"): ("Gym", "Exercise Equipment"),
     ("fitness_equipment", "elliptical"):     ("Gym", "Exercise Equipment"),
+    ("fitness_equipment", "pilates"):   ("Gym", "Exercise Equipment"),
     ("fitness_equipment", None):        ("Gym", "Exercise Equipment"),
     ("gym_and_fitness", "generic"):     ("Gym", "Exercise Equipment"),
     ("gym_and_fitness", None):          ("Gym", "Exercise Equipment"),
@@ -188,8 +202,6 @@ ACTIVITY_TYPE_MAP = {
     ("snowboarding", "generic"):        ("Ski", "Resort Skiing"),
     ("snowboarding", "backcountry"):    ("Ski", "Backcountry Skiing"),
     ("snowboarding", None):             ("Ski", "Resort Skiing"),
-    ("snowshoeing", "generic"):         ("Hike", "Hike"),
-    ("snowshoeing", None):              ("Hike", "Hike"),
     ("ice_skating", "generic"):         ("Gym", "Exercise Equipment"),
     ("inline_skating", "generic"):      ("Gym", "Exercise Equipment"),
     ("stand_up_paddleboarding", "generic"): ("Rowing", None),
@@ -197,15 +209,6 @@ ACTIVITY_TYPE_MAP = {
     ("floor_climbing", "generic"):      ("Climb", "Indoors - Bouldering"),
     ("rock_climbing", "69"):            ("Climb", "Indoors - Bouldering"),  # Bouldering numeric
     ("boxing", "generic"):              ("Gym", "Exercise Equipment"),
-    ("training", "yoga"):               ("Gym", "Exercise Equipment"),
-    ("fitness_equipment", "pilates"):   ("Gym", "Exercise Equipment"),
-    ("cycling", "indoor_cycling"):      ("Bike", "Road Ride"),
-    ("cycling", "mountain"):            ("Bike", "Mountain Bike Ride"),
-    ("cycling", "e_bike_mountain"):     ("Bike", "Mountain Bike Ride"),
-    ("cycling", "commuting"):           ("Bike", "Road Ride"),
-    ("cycling", "mixed_surface"):       ("Bike", "Road Ride"),
-    ("cycling", "road"):                ("Bike", "Road Ride"),
-    ("cycling", "bmx"):                 ("Bike", "Mountain Bike Ride"),
     ("walking", "indoor_walking"):      ("Walk", None),
     ("running", "67"):                  ("Run", "Trail Run"),   # Ultra Run numeric sub_sport
     ("running", "virtual_activity"):    ("Run", "Treadmill"),
@@ -219,8 +222,8 @@ def map_activity_type(raw_sport, raw_sub_sport):
     Tries exact (sport, sub_sport) match first, then (sport, None) fallback,
     then returns raw values if nothing matches.
     """
-    sport = (raw_sport or "").replace("Sport.", "").lower().strip()
-    sub   = (raw_sub_sport or "").replace("SubSport.", "").lower().strip() or None
+    sport = str(raw_sport or "").replace("Sport.", "").lower().strip()
+    sub   = str(raw_sub_sport or "").replace("SubSport.", "").lower().strip() or None
 
     # Exact match
     result = ACTIVITY_TYPE_MAP.get((sport, sub))
@@ -238,6 +241,37 @@ def map_activity_type(raw_sport, raw_sub_sport):
         sport.title() if sport else None,
         sub.replace("_", " ").title() if sub else None,
     )
+
+
+# ---------------------------------------------------------------------------
+# FINGERPRINT  (keep in sync with backfill_fingerprints.py)
+# ---------------------------------------------------------------------------
+
+def make_fingerprint(activity_date, type_of_activity, distance_miles, duration_minutes):
+    """
+    Compute a normalized cross-source dedup key.
+
+    Format: YYYY-MM-DD|TypeOfActivity|D.D|MMM
+      distance_miles   rounded to 1 decimal  (0.1 mi tolerance)
+      duration_minutes rounded to 0 decimals (1 min  tolerance)
+
+    Returns None if any required field is missing.
+
+    Example: '2024-03-15|Run|6.2|52'
+    """
+    if not activity_date or not type_of_activity \
+            or distance_miles is None or duration_minutes is None:
+        return None
+    try:
+        d    = str(activity_date)
+        t    = str(type_of_activity).strip()
+        dist = str(round(float(distance_miles), 1))
+        dur  = str(round(float(duration_minutes), 0))
+        if dur.endswith(".0"):
+            dur = dur[:-2]
+        return f"{d}|{t}|{dist}|{dur}"
+    except (TypeError, ValueError):
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -301,13 +335,16 @@ def extract_exercise_fields_fit(session_data, filename):
     vr_raw = get("avg_vertical_ratio")
     type_of_activity, subtype_of_activity = map_activity_type(sport, sub)
 
+    distance_miles   = round(dist_m / 1609.344, 2) if dist_m else None
+    duration_minutes = round(timer_s / 60, 2) if timer_s else None
+
     return {
         "garmin_fit_file":         filename,
         "activity_date":           activity_date,
         "type_of_activity":        type_of_activity,
         "subtype_of_activity":     subtype_of_activity,
-        "distance_miles":          round(dist_m / 1609.344, 2) if dist_m else None,
-        "duration_minutes":        round(timer_s / 60, 2) if timer_s else None,
+        "distance_miles":          distance_miles,
+        "duration_minutes":        duration_minutes,
         "total_elapsed_time":      round(elapsed_s / 60, 2) if elapsed_s else None,
         "elevation_gain_feet":     round(ascent_m * 3.28084, 1) if ascent_m else None,
         "average_heart_rate":      get("avg_heart_rate"),
@@ -323,7 +360,10 @@ def extract_exercise_fields_fit(session_data, filename):
         "avg_step_length_mm":      get("avg_step_length"),
         "source_system":           "garmin_fit",
         "source_object":           "batch_ingest_exercise.py",
-        "source_record_id":        os.path.splitext(filename)[0],  # filename stem as stable ID
+        "source_record_id":        os.path.splitext(filename)[0],
+        "activity_fingerprint":    make_fingerprint(
+                                       activity_date, type_of_activity,
+                                       distance_miles, duration_minutes),
     }
 
 
@@ -417,6 +457,7 @@ def parse_tcx(tcx_path):
         "source_system":           "garmin_tcx",
         "source_object":           "batch_ingest_exercise.py",
         "source_record_id":        os.path.splitext(filename)[0],
+        "activity_fingerprint":    None,       # computed after fields are populated below
     }
 
     activities = root.findall(".//tcx:Activity", ns)
@@ -550,30 +591,78 @@ def parse_tcx(tcx_path):
             gain = sum(max(0, alts[i] - alts[i-1]) for i in range(1, len(alts)))
             total_ascent_m = gain
 
+    distance_miles   = round(total_dist_m / 1609.344, 2) if total_dist_m else None
+    duration_minutes = round(total_time_s / 60, 2) if total_time_s else None
+
     exercise_fields["activity_date"]       = first_lap_ts.date() if first_lap_ts else None
-    exercise_fields["distance_miles"]      = round(total_dist_m / 1609.344, 2) if total_dist_m else None
-    exercise_fields["duration_minutes"]    = round(total_time_s / 60, 2) if total_time_s else None
-    exercise_fields["total_elapsed_time"]  = exercise_fields["duration_minutes"]  # TCX doesn't split these
+    exercise_fields["distance_miles"]      = distance_miles
+    exercise_fields["duration_minutes"]    = duration_minutes
+    exercise_fields["total_elapsed_time"]  = duration_minutes  # TCX doesn't split these
     exercise_fields["elevation_gain_feet"] = round(total_ascent_m * 3.28084, 1) if total_ascent_m else None
     exercise_fields["calories"]            = total_calories or None
     exercise_fields["max_heart_rate"]      = max_hr or None
     exercise_fields["average_heart_rate"]  = round(sum_hr / hr_count, 1) if hr_count else None
+    exercise_fields["activity_fingerprint"] = make_fingerprint(
+        exercise_fields["activity_date"],
+        type_of_activity,
+        distance_miles,
+        duration_minutes,
+    )
 
     return exercise_fields, trackpoints
 
 
 # ---------------------------------------------------------------------------
-# DUPLICATE CHECK
+# IDEMPOTENCY  —  two-layer dedup
 # ---------------------------------------------------------------------------
 
-def already_ingested(conn, filename):
-    """Return True if a row with this garmin_fit_file already exists in exercise."""
+def find_existing_exercise(conn, source_system, source_record_id, fingerprint):
+    """
+    Check whether this activity has already been ingested.
+
+    Returns (exercise_id, match_type) where match_type is one of:
+      'source_key'  — exact (source_system, source_record_id) match
+      'fingerprint' — cross-source match on date+type+distance+duration
+      None          — no match found; safe to insert
+
+    Layer 1 (source key) is checked first and takes priority.
+    Layer 2 (fingerprint) catches the same workout arriving from a second
+    source (e.g. Garmin FIT already in DB, Strava now arriving).
+    """
     with conn.cursor() as cur:
-        cur.execute(
-            "SELECT 1 FROM exercise WHERE garmin_fit_file = %s AND is_deleted = FALSE LIMIT 1",
-            (filename,),
-        )
-        return cur.fetchone() is not None
+
+        # Layer 1 — exact source key
+        if source_system and source_record_id:
+            cur.execute(
+                """
+                SELECT exercise_id FROM exercise
+                WHERE source_system    = %s
+                  AND source_record_id = %s
+                  AND is_deleted = FALSE
+                LIMIT 1
+                """,
+                (source_system, source_record_id),
+            )
+            row = cur.fetchone()
+            if row:
+                return row[0], "source_key"
+
+        # Layer 2 — fingerprint match
+        if fingerprint:
+            cur.execute(
+                """
+                SELECT exercise_id FROM exercise
+                WHERE activity_fingerprint = %s
+                  AND is_deleted = FALSE
+                LIMIT 1
+                """,
+                (fingerprint,),
+            )
+            row = cur.fetchone()
+            if row:
+                return row[0], "fingerprint"
+
+    return None, None
 
 
 # ---------------------------------------------------------------------------
@@ -609,7 +698,8 @@ def insert_exercise(cur, fields, day_id, week_id):
             calories, tss_score, num_laps,
             avg_vertical_ratio, avg_stance_time_balance, avg_step_length_mm,
             garmin_fit_file,
-            source_system, source_object, source_record_id
+            source_system, source_object, source_record_id,
+            activity_fingerprint
         ) VALUES (
             %(day_id)s, %(week_id)s, %(activity_date)s,
             %(type_of_activity)s, %(subtype_of_activity)s,
@@ -619,12 +709,44 @@ def insert_exercise(cur, fields, day_id, week_id):
             %(calories)s, %(tss_score)s, %(num_laps)s,
             %(avg_vertical_ratio)s, %(avg_stance_time_balance)s, %(avg_step_length_mm)s,
             %(garmin_fit_file)s,
-            %(source_system)s, %(source_object)s, %(source_record_id)s
+            %(source_system)s, %(source_object)s, %(source_record_id)s,
+            %(activity_fingerprint)s
         )
         RETURNING exercise_id;
     """
     cur.execute(sql, {**fields, "day_id": day_id, "week_id": week_id})
     return cur.fetchone()[0]
+
+
+def enrich_exercise(conn, exercise_id, fields):
+    """
+    Called when a fingerprint match is found — a different source has already
+    ingested this workout.  Writes the new source's identifier into the
+    existing row (e.g. strava_activity_id) and flips updated_at.
+
+    Extend this function as new source systems are added.
+    Currently handles: strava.
+    """
+    source = fields.get("source_system", "")
+    updates = []
+    params  = {"exercise_id": exercise_id}
+
+    if source == "strava":
+        strava_id = fields.get("strava_activity_id") or fields.get("source_record_id")
+        if strava_id:
+            updates.append("strava_activity_id = COALESCE(strava_activity_id, %(strava_activity_id)s)")
+            params["strava_activity_id"] = strava_id
+
+    if not updates:
+        # Nothing actionable to write for this source — treat as duplicate
+        return False
+
+    updates.append("updated_at = NOW()")
+    sql = f"UPDATE exercise SET {', '.join(updates)} WHERE exercise_id = %(exercise_id)s"
+    with conn.cursor() as cur:
+        cur.execute(sql, params)
+    conn.commit()
+    return True
 
 
 def insert_trackpoints(cur, exercise_id, trackpoints):
@@ -663,20 +785,33 @@ def insert_trackpoints(cur, exercise_id, trackpoints):
 
 def process_file(filepath, filename, fmt, dry_run, conn, sport_override=None):
     """
-    Parse one file, run duplicate check, write to DB (unless dry_run).
-    Returns a result dict for the run log.
+    Parse one file, run duplicate checks, write to DB (unless dry_run).
+
+    Status values returned:
+      inserted           — new row written
+      enriched           — fingerprint match; existing row updated with new source ID
+      skipped_duplicate  — exact source key match; nothing to do
+      skipped_no_date    — could not determine activity_date
+      skipped            — unsupported format
+      dry_run_ok         — dry run, would insert
+      dry_run_enrich     — dry run, would enrich existing row
+      dry_run_duplicate  — dry run, exact source key match
+      error_parse        — exception during file parsing
+      error_write        — exception during DB write
+      error_db           — exception during DB read (dedup check)
     """
     result = {
-        "filename":        filename,
-        "format":          fmt,
-        "activity_date":   "",
+        "filename":         filename,
+        "format":           fmt,
+        "activity_date":    "",
         "type_of_activity": "",
-        "distance_miles":  "",
+        "distance_miles":   "",
         "duration_minutes": "",
-        "trackpoints":     "",
-        "exercise_id":     "",
-        "status":          "",
-        "note":            "",
+        "trackpoints":      "",
+        "exercise_id":      "",
+        "fingerprint":      "",
+        "status":           "",
+        "note":             "",
     }
 
     # ── Parse ──────────────────────────────────────────────────────────────
@@ -686,7 +821,6 @@ def process_file(filepath, filename, fmt, dry_run, conn, sport_override=None):
             exercise_fields = extract_exercise_fields_fit(session_data, filename)
             trackpoints = extract_trackpoints_fit(tp_raw)
         elif fmt == "tcx":
-
             exercise_fields, trackpoints = parse_tcx(filepath)
         else:
             result["status"] = "skipped"
@@ -698,38 +832,95 @@ def process_file(filepath, filename, fmt, dry_run, conn, sport_override=None):
         return result
 
     # Apply sport_override from manifest (e.g. cycling misclassified as running)
-    # Run through the mapping so the canonical taxonomy is preserved
     if sport_override:
         mapped_type, mapped_sub = map_activity_type(sport_override, None)
         exercise_fields["type_of_activity"]    = mapped_type
         exercise_fields["subtype_of_activity"] = mapped_sub
+        # Recompute fingerprint after override — type may have changed
+        exercise_fields["activity_fingerprint"] = make_fingerprint(
+            exercise_fields.get("activity_date"),
+            mapped_type,
+            exercise_fields.get("distance_miles"),
+            exercise_fields.get("duration_minutes"),
+        )
 
     result["activity_date"]    = str(exercise_fields.get("activity_date") or "")
     result["type_of_activity"] = exercise_fields.get("type_of_activity") or ""
     result["distance_miles"]   = str(exercise_fields.get("distance_miles") or "")
     result["duration_minutes"] = str(exercise_fields.get("duration_minutes") or "")
     result["trackpoints"]      = str(len(trackpoints))
+    result["fingerprint"]      = exercise_fields.get("activity_fingerprint") or ""
 
-    # ── Dry-run: preview and stop ──────────────────────────────────────────
+    # ── Dry-run: dedup check then stop ────────────────────────────────────
     if dry_run:
+        # Still perform a read-only dedup check so the dry-run output is meaningful
+        if conn:
+            try:
+                existing_id, match_type = find_existing_exercise(
+                    conn,
+                    exercise_fields.get("source_system"),
+                    exercise_fields.get("source_record_id"),
+                    exercise_fields.get("activity_fingerprint"),
+                )
+                if match_type == "source_key":
+                    result["status"]      = "dry_run_duplicate"
+                    result["exercise_id"] = str(existing_id)
+                    result["note"]        = "source key match — would skip"
+                    return result
+                elif match_type == "fingerprint":
+                    result["status"]      = "dry_run_enrich"
+                    result["exercise_id"] = str(existing_id)
+                    result["note"]        = f"fingerprint match exercise_id={existing_id} — would enrich"
+                    return result
+            except Exception:
+                pass  # dedup failure in dry-run is non-fatal
+
         result["status"] = "dry_run_ok"
         result["note"] = (
             f"{exercise_fields.get('type_of_activity')} | "
             f"{exercise_fields.get('distance_miles')} mi | "
             f"{exercise_fields.get('duration_minutes')} min | "
-            f"{len(trackpoints)} trackpoints"
+            f"{len(trackpoints)} trackpoints | "
+            f"fp={exercise_fields.get('activity_fingerprint') or 'none'}"
         )
         return result
 
-    # ── Duplicate check ────────────────────────────────────────────────────
+    # ── Duplicate / fingerprint check ─────────────────────────────────────
     try:
-        if already_ingested(conn, filename):
-            result["status"] = "skipped_duplicate"
-            result["note"]   = "garmin_fit_file already in exercise table"
-            return result
+        existing_id, match_type = find_existing_exercise(
+            conn,
+            exercise_fields.get("source_system"),
+            exercise_fields.get("source_record_id"),
+            exercise_fields.get("activity_fingerprint"),
+        )
     except Exception as e:
         result["status"] = "error_db"
-        result["note"]   = f"duplicate check failed: {e}"
+        result["note"]   = f"dedup check failed: {e}"
+        return result
+
+    if match_type == "source_key":
+        result["status"]      = "skipped_duplicate"
+        result["exercise_id"] = str(existing_id)
+        result["note"]        = "exact source key already in exercise table"
+        return result
+
+    if match_type == "fingerprint":
+        # Same workout from a different source — enrich the existing row
+        try:
+            enriched = enrich_exercise(conn, existing_id, exercise_fields)
+            result["status"]      = "enriched"
+            result["exercise_id"] = str(existing_id)
+            result["note"]        = (
+                f"fingerprint match — {'enriched' if enriched else 'nothing new to write'} "
+                f"exercise_id={existing_id}"
+            )
+        except Exception as e:
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+            result["status"] = "error_write"
+            result["note"]   = f"enrich failed: {str(e)[:100]}"
         return result
 
     # ── Validate required fields ───────────────────────────────────────────
@@ -753,7 +944,8 @@ def process_file(filepath, filename, fmt, dry_run, conn, sport_override=None):
         result["status"]      = "inserted"
         result["note"]        = (
             f"day_id={day_id}, week_id={week_id}, "
-            f"{len(trackpoints)} trackpoints"
+            f"{len(trackpoints)} trackpoints, "
+            f"fp={exercise_fields.get('activity_fingerprint') or 'none'}"
         )
 
     except Exception as e:
@@ -860,32 +1052,27 @@ def main():
     log_fields = [
         "filename", "format", "activity_date", "type_of_activity",
         "distance_miles", "duration_minutes", "trackpoints",
-        "exercise_id", "status", "note",
+        "exercise_id", "fingerprint", "status", "note",
     ]
 
-    # ── DB connection (skip in dry-run) ────────────────────────────────────
+    # ── DB connection ──────────────────────────────────────────────────────
+    # In dry-run we still connect (read-only dedup checks make the preview
+    # more accurate). Connection failure in dry-run is non-fatal.
     conn = None
-    if not args.dry_run:
-        try:
-            conn = get_connection()
-            print("  ✓ Database connected")
-        except Exception as e:
+    try:
+        conn = get_connection()
+        print(f"  {'✓' if not args.dry_run else '○'} Database connected"
+              f"{' (read-only dedup checks)' if args.dry_run else ''}")
+    except Exception as e:
+        if args.dry_run:
+            print(f"  ⚠  Could not connect to database ({e}) — dedup checks skipped in dry-run")
+        else:
             print(f"  ERROR: could not connect to database — {e}")
             sys.exit(1)
 
     # ── Process files ──────────────────────────────────────────────────────
-    counters = {
-        "inserted":           0,
-        "skipped_duplicate":  0,
-        "skipped_no_date":    0,
-        "skipped":            0,
-        "dry_run_ok":         0,
-        "error_parse":        0,
-        "error_write":        0,
-        "error_db":           0,
-    }
-
-    run_log = []
+    counters = {}
+    run_log  = []
 
     for i, row in enumerate(exercise_rows, start=1):
         filename = row["filename"]
@@ -896,8 +1083,9 @@ def main():
             result = {
                 "filename": filename, "format": fmt,
                 "activity_date": "", "type_of_activity": "",
-                "distance_miles": "", "duration_minutes": "", "trackpoints": "",
-                "exercise_id": "", "status": "error_not_found",
+                "distance_miles": "", "duration_minutes": "",
+                "trackpoints": "", "exercise_id": "", "fingerprint": "",
+                "status": "error_not_found",
                 "note": "file not found on disk",
             }
         else:
@@ -909,20 +1097,23 @@ def main():
         counters[status] = counters.get(status, 0) + 1
         run_log.append(result)
 
-        # Console output
+        # Console marker
         marker = {
-            "inserted":          "✓",
-            "dry_run_ok":        "○",
-            "skipped_duplicate": "─",
-            "skipped_no_date":   "!",
-            "error_parse":       "✗",
-            "error_write":       "✗",
-            "error_db":          "✗",
-            "error_not_found":   "✗",
+            "inserted":           "✓",
+            "enriched":           "⊕",
+            "dry_run_ok":         "○",
+            "dry_run_enrich":     "○⊕",
+            "dry_run_duplicate":  "──",
+            "skipped_duplicate":  "─",
+            "skipped_no_date":    "!",
+            "error_parse":        "✗",
+            "error_write":        "✗",
+            "error_db":           "✗",
+            "error_not_found":    "✗",
         }.get(status, "?")
 
         print(
-            f"  [{i:>4}/{total}] {marker} {filename[:52]:52s} "
+            f"  [{i:>4}/{total}] {marker:3s} {filename[:50]:50s} "
             f"{result['activity_date']:10s} "
             f"{result['type_of_activity']:15s} "
             f"{result['distance_miles']:>8} mi  "
