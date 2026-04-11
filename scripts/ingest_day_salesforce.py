@@ -1,3 +1,46 @@
+"""
+ingest_day_salesforce.py
+------------------------
+Syncs Day__c records from Salesforce into the local PostgreSQL `day` table.
+
+Behavior:
+  - Queries all Day__c records by default; use --year / --month to limit scope
+  - Resolves calendar dimension FKs (week_id, month_id, year_id) from the local
+    week / month / year tables — these must be seeded first via seed_calendar_year.py
+  - Upserts on the `date` unique constraint: inserts new rows, updates existing ones
+  - Records that fail FK resolution are skipped with a WARNING log entry
+  - --dry-run performs the full Salesforce query and transform but skips the upsert
+
+Usage:
+  # Sync all records (full historical load)
+  python ingest_day_salesforce.py
+
+  # Sync a specific month
+  python ingest_day_salesforce.py --year 2026 --month 4
+
+  # Sync a full year
+  python ingest_day_salesforce.py --year 2026
+
+  # Preview without writing
+  python ingest_day_salesforce.py --year 2026 --month 4 --dry-run
+
+Prerequisites:
+  Run seed_calendar_year.py for any year being ingested before running this script.
+  Example: python seed_calendar_year.py --year 2026 --confirm
+
+Environment (.env in script directory or CWD):
+  SF_USERNAME       Salesforce username
+  SF_PASSWORD       Salesforce password
+  SF_TOKEN          Salesforce security token
+  POSTGRES_DB       personal_crm
+  POSTGRES_USER     john
+  POSTGRES_PASSWORD <password>
+  PG_HOST           localhost  (default)
+  PG_PORT           5432       (default)
+"""
+
+import argparse
+import calendar
 import os
 import logging
 from datetime import datetime, date
@@ -89,7 +132,7 @@ def resolve_year_id(d, years):
 # Salesforce query
 # ---------------------------------------------------------------------------
 
-SOQL = """
+SOQL_SELECT = """
     SELECT
         Id,
         Date__c,
@@ -115,8 +158,18 @@ SOQL = """
         Lunch__c,
         Dinner__c
     FROM Day__c
-    ORDER BY Date__c ASC
 """
+
+
+def build_soql(year=None, month=None):
+    if year and month:
+        last_day = calendar.monthrange(year, month)[1]
+        where = f"WHERE Date__c >= {year}-{month:02d}-01 AND Date__c <= {year}-{month:02d}-{last_day:02d}"
+    elif year:
+        where = f"WHERE Date__c >= {year}-01-01 AND Date__c <= {year}-12-31"
+    else:
+        where = ""
+    return f"{SOQL_SELECT}    {where}\n    ORDER BY Date__c ASC"
 
 
 # ---------------------------------------------------------------------------
@@ -214,7 +267,19 @@ UPSERT_SQL = """
 # Main
 # ---------------------------------------------------------------------------
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Ingest Day__c records from Salesforce into Postgres.")
+    parser.add_argument("--year",  type=int, metavar="YYYY", help="Limit to a specific year (e.g. 2026).")
+    parser.add_argument("--month",    type=int, metavar="M",    help="Limit to a specific month (1–12). Requires --year.")
+    parser.add_argument("--dry-run",  action="store_true",       help="Query and transform records but skip the upsert.")
+    args = parser.parse_args()
+    if args.month and not args.year:
+        parser.error("--month requires --year")
+    return args
+
+
 def main():
+    args = parse_args()
     log.info("Starting Day__c ingestion")
 
     log.info("Connecting to Salesforce")
@@ -226,8 +291,9 @@ def main():
     log.info("Loading calendar lookups")
     weeks, months, years = load_calendar_lookups(conn)
 
+    soql = build_soql(year=args.year, month=args.month)
     log.info("Querying Day__c from Salesforce")
-    result = sf.query_all(SOQL)
+    result = sf.query_all(soql)
     records = result['records']
     log.info(f"Retrieved {len(records)} Day__c records")
 
@@ -243,12 +309,14 @@ def main():
 
     log.info(f"Transformed {len(transformed)} records, skipped {len(errors)}")
 
-    log.info("Upserting into Postgres")
-    with conn.cursor() as cur:
-        execute_batch(cur, UPSERT_SQL, transformed, page_size=100)
-    conn.commit()
-
-    log.info(f"Ingestion complete — {len(transformed)} records upserted")
+    if args.dry_run:
+        log.info("DRY RUN — skipping upsert. No data written.")
+    else:
+        log.info("Upserting into Postgres")
+        with conn.cursor() as cur:
+            execute_batch(cur, UPSERT_SQL, transformed, page_size=100)
+        conn.commit()
+        log.info(f"Ingestion complete — {len(transformed)} records upserted")
 
     if errors:
         log.warning(f"{len(errors)} records skipped:")
