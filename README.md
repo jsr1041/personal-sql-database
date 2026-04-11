@@ -1,1 +1,1 @@
-# Personal-SQL-Datbase
+# Personal-SQL-Database
