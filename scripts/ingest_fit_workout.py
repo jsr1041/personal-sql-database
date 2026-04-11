@@ -281,9 +281,10 @@ def extract_exercise_fields(session_data, fit_filename=None):
         "tss_score":                 tss,
         "garmin_fit_file":           garmin_fit_file,
         "source_record_id":          source_record_id,
-        "activity_fingerprint":      make_fingerprint(
-                                         activity_date, canonical_type,
-                                         distance_miles, duration_minutes),
+        # activity_fingerprint is NOT set here — it is computed in main() after
+        # the intake interview confirms the final type_override, so the fingerprint
+        # always matches the persisted type_of_activity.
+        "activity_fingerprint":      None,
     }
 
 
@@ -832,6 +833,16 @@ def main():
     exercise_extras, analysis_data = run_intake_interview(
         fit_type=exercise_fields.get("type_of_activity"),
         fit_subtype=exercise_fields.get("subtype_of_activity"),
+    )
+
+    # ── Recompute fingerprint using confirmed type_override ──
+    # Done here — after the interview — so the fingerprint always matches
+    # the type_of_activity that will actually be persisted to the DB.
+    exercise_fields["activity_fingerprint"] = make_fingerprint(
+        exercise_fields.get("activity_date"),
+        exercise_extras["type_override"],
+        exercise_fields.get("distance_miles"),
+        exercise_fields.get("duration_minutes"),
     )
 
     # ── Step 4: Write summary + final confirmation ───────────
