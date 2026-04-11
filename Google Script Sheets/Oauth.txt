@@ -1,0 +1,46 @@
+const SF_LOGIN_URL = 'https://login.salesforce.com'; // or https://test.salesforce.com
+
+function getSalesforceService() {
+  const props = PropertiesService.getScriptProperties();
+  const clientId = props.getProperty('Consumer Key');
+  const clientSecret = props.getProperty('Consumer Secret');
+  if (!clientId || !clientSecret) throw new Error('Missing Consumer Key/Secret in Script Properties.');
+
+  return OAuth2.createService('salesforce')
+    .setAuthorizationBaseUrl(SF_LOGIN_URL + '/services/oauth2/authorize')
+    .setTokenUrl(SF_LOGIN_URL + '/services/oauth2/token')
+    .setClientId(clientId)
+    .setClientSecret(clientSecret)
+    .setCallbackFunction('authCallback')
+    .setPropertyStore(PropertiesService.getUserProperties())
+    .setScope('api refresh_token offline_access')
+    .setParam('prompt', 'consent');
+}
+
+function authCallback(request) {
+  const service = getSalesforceService();
+  const authorized = service.handleCallback(request);
+  return HtmlService.createHtmlOutput(
+    authorized ? 'Salesforce authorization successful. You can close this tab.'
+               : 'Salesforce authorization denied.'
+  );
+}
+
+function authorizeSalesforce() {
+  const service = getSalesforceService();
+  if (service.hasAccess()) return 'Already authorized';
+
+  const url = service.getAuthorizationUrl();
+  Logger.log(url);
+  return url;
+}
+
+function checkAuth() {
+  console.log(getSalesforceService().hasAccess());
+}
+
+function forceReauthSalesforce() {
+  const service = getSalesforceService();
+  service.reset(); // clears cached token
+  console.log('Reset done. Now run your auth function to authorize again.');
+}

@@ -1,0 +1,65 @@
+//function cleanNumber(v) {
+//  if (v === '' || v === null || v === undefined) return null;
+//  const s = String(v).replace(/,/g, '').trim();
+//  if (s.toLowerCase() === 'n/a') return null;
+//  const n = Number(s);
+//  return Number.isFinite(n) ? n : null;
+//replaced with toNumberorNull; if not functional, replace cleanNumber with toNumberorNull function
+//}
+
+function cleanText(v) {
+  if (v === null || v === undefined) return null;
+
+  const s = String(v).trim();
+  if (s === '' || s.toLowerCase() === 'n/a') return null;
+
+  return s;
+}
+
+function toDateKey(d) {
+  if (!d) return null;
+  const tz = SpreadsheetApp.getActive().getSpreadsheetTimeZone();
+  return Utilities.formatDate(new Date(d), tz, 'yyyy-MM-dd');
+}
+
+function dateFromYMDLocal_(ymd) {
+  if (!ymd) return null;
+  const [y, m, d] = ymd.split('-').map(n => parseInt(n, 10));
+  return new Date(y, m - 1, d, 12, 0, 0); // noon avoids DST edge cases
+}
+
+function toNumberOrNull(v) {
+  if (v === '' || v === null || v === undefined) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+  // returns an integer but retains decimals 
+}
+
+function toIntOrNull(v) {
+  if (v === '' || v === null || v === undefined) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? Math.trunc(n) : null;
+  // Returns an integer but removes any decimals
+}
+
+function yesNoToBoolean(value) {
+  if (value == null) return null;
+
+  const v = String(value).trim().toLowerCase();
+
+  if (v === 'yes') return true;
+  if (v === 'no') return false;
+
+  return null; // or throw if you want strict behavior
+}
+
+function columnNumberToLetter_(col) {
+  let letter = '';
+  while (col > 0) {
+    const rem = (col - 1) % 26;
+    letter = String.fromCharCode(65 + rem) + letter;
+    col = Math.floor((col - 1) / 26);
+  }
+  return letter;
+}
+

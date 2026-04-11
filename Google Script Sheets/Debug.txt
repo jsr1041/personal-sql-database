@@ -1,0 +1,85 @@
+function debugPrintDaysAsJson() {
+  const weekIndex = 0;          // change to test other weeks
+  const dayIndexes = [0, 1];    // Monday + Tuesday (change as needed), add structure like [0, 1, 2, 3] for more days if desired to test
+
+  const sheet = SpreadsheetApp.getActive().getSheetByName(TRACKER_SHEET);
+  const baseRow = weekStartRow(weekIndex);
+
+  const results = [];
+
+  for (const dayIndex of dayIndexes) {
+    const valueCol = colForDay(dayIndex, IN_BLOCK_VALUE);
+    const pointsCol = colForDay(dayIndex, IN_BLOCK_POINTS);
+    const totalpointsCol = colForDay(dayIndex, IN_BLOCK_POINTS_2);
+
+    const dateRaw = sheet.getRange(baseRow + ROW_DATE, valueCol).getValue();
+    if (!dateRaw) continue; // skip blank days
+
+    results.push({
+      weekIndex,
+      dayIndex,
+      date: toDateKey(dateRaw),
+
+      drinks: cleanNumber(sheet.getRange(baseRow + ROW_DRINKS, valueCol).getValue()),
+      liters_of_water: cleanNumber(sheet.getRange(baseRow + ROW_LITERS_WATER, valueCol).getValue()),
+      screen_time: cleanNumber(sheet.getRange(baseRow + ROW_SCREEN_TIME, valueCol).getValue()),
+      sleep_time: cleanNumber(sheet.getRange(baseRow + ROW_SLEEP_TIME, valueCol).getValue()),
+      steps: cleanNumber(sheet.getRange(baseRow + ROW_STEPS, valueCol).getValue()),
+      minutes_tv: cleanNumber(sheet.getRange(baseRow + ROW_MINUTES_TV, valueCol).getValue()),
+      minutes_reading: cleanNumber(sheet.getRange(baseRow + ROW_MINUTES_READING, valueCol).getValue()),
+
+      breakfast: cleanText(sheet.getRange(baseRow + ROW_BREAKFAST, valueCol).getValue()),
+      lunch: cleanText(sheet.getRange(baseRow + ROW_LUNCH, valueCol).getValue()),
+      dinner: cleanText(sheet.getRange(baseRow + ROW_DINNER, valueCol).getValue()),
+
+      daily_rating: cleanNumber(sheet.getRange(baseRow + ROW_DAILY_RATING, valueCol).getValue()),
+
+      total_daily_points: cleanNumber(
+        sheet.getRange(baseRow + ROW_TOTAL_DAILY_POINTS, pointsCol).getValue()
+      ),
+
+      total_points: cleanNumber(
+        sheet.getRange(baseRow + ROW_TOTAL_POINTS, totalpointsCol).getValue()
+      ),
+    });
+  }
+
+  console.log(JSON.stringify(results, null, 2));
+}
+
+function debugWeek2() {
+  console.log(JSON.stringify(readWeekAsJson(1), null, 2)); // weekIndex 1 = rows 46–89
+}
+
+function debugWeekStartRows() {
+  console.log('week 0 start row = ' + weekStartRow(0)); // should be 2
+  console.log('week 1 start row = ' + weekStartRow(1)); // should be 46
+}
+
+function debugWeek0() {
+  console.log(JSON.stringify(readWeekAsJson(1), null, 2));
+}
+
+function debugTwoWeeksAsJson() {
+  const weekA = 0; // week 1 (rows 2–45)
+  const weekB = 1; // week 2 (rows 46–89)
+
+  const result = {
+    weekA: readWeekAsJson(weekA),
+    weekB: readWeekAsJson(weekB)
+  };
+
+  console.log(JSON.stringify(result, null, 2));
+}
+
+function debugTwoWeeksFlattenedAsJson() {
+  const weekA = 0; // rows 2–45
+  const weekB = 1; // rows 46–89
+
+  const allDays = [
+    ...readWeekAsJson(weekA),
+    ...readWeekAsJson(weekB)
+  ];
+
+  console.log(JSON.stringify(allDays, null, 2));
+}

@@ -1,0 +1,205 @@
+const SF_API_VERSION = 'v60.0';
+const SHEET_NAME = 'Day by Day Data';
+// Sheet columns (0-based indexes)
+const COL_DATE = 0;           // A
+const COL_POINTS_SCORED = 1;  // B
+const COL_TOTAL_POINTS = 2;   // C
+const COL_DRINKS = 3;         // D
+const COL_WATER = 4;          // E
+const COL_Screen = 5;         // F
+const COL_SLEEP = 6;          // G
+const COL_STEPS = 7;          // H
+const COL_Pushups = 8;        // I 
+const COL_TV = 9;             // J
+const COL_Read = 10;          // K
+const COL_Breakfast = 11;     // L
+const COL_Lunch = 12;         // M
+const COL_Dinner = 13;        // N
+const COL_Rating = 14;        // O
+const COL_Incomplete_Food = 15 //P
+const COL_Calories = 16;      // Q
+const COL_Cal_Burned = 17;    // R
+const COL_Protein = 18;       // S
+const COL_Carbs = 19;         // T
+const COL_Fat = 20;           // W
+const COL_Week = 21;          // V
+const COL_SYNCED = 23;        // X
+const COL_ERROR = 24;         // Y 
+
+// Main entry point
+function syncMetricsToSalesforce() {
+
+  const lock = LockService.getDocumentLock();
+    if (!lock.tryLock(10 * 1000)) {
+  SpreadsheetApp.getUi().alert('Sync already running. Try again in a moment.');
+  return;
+}
+try {
+  // existing sync code...
+} finally {
+  lock.releaseLock();
+}
+  const service = getSalesforceService();
+  if (!service.hasAccess()) throw new Error('Not authorized.');
+
+  const baseUrl = service.getToken().instance_url;
+  const token = service.getAccessToken();
+
+  const sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME);
+  if (!sheet) throw new Error(`Sheet "${SHEET_NAME}" not found.`);
+
+  const values = sheet.getDataRange().getValues();
+
+  let success = 0, failed = 0, skipped = 0;
+
+  for (let i = 1; i < values.length; i++) { // skip header row
+    const row = values[i];
+
+    const dateVal = row[COL_DATE];
+    const synced = row[COL_SYNCED];
+
+    if (!dateVal || synced === true) {
+      skipped++;
+      continue;
+    }
+
+    const dateStr = Utilities.formatDate(new Date(dateVal), 'GMT', 'yyyy-MM-dd');
+
+    const payload = {
+      Date__c: dateStr,
+      Daily_Points_Scored__c: toNumberOrNull(row[COL_POINTS_SCORED]),
+      Total_Daily_Points__c: toNumberOrNull(row[COL_TOTAL_POINTS]),
+      Drinks__c: toNumberOrNull(row[COL_DRINKS]),
+      Liters_of_Water__c: toNumberOrNull(row[COL_WATER]),
+      Sleep_Time__c: toNumberOrNull(row[COL_SLEEP]),
+      Screen_Time__c: toNumberOrNull(row[COL_Screen]),
+      Steps__c: toIntOrNull(row[COL_STEPS]),
+      Minutes_of_TV__c: toNumberOrNull(row[COL_TV]),
+      Minutes_of_Reading__c: toNumberOrNull(row[COL_Read]),
+      Breakfast__c: row[COL_Breakfast],
+      Lunch__c: row[COL_Lunch],
+      Dinner__c: row[COL_Dinner],
+      Daily_Rating__c: toNumberOrNull(row[COL_Rating]),
+      Incomplete_Food_Log__c: yesNoToBoolean(row[COL_Incomplete_Food]),
+      Number_of_Pushups__c: toNumberOrNull(row[COL_Pushups]),
+      Calories__c:toNumberOrNull(row[COL_Calories]),
+      Calories_Burned__c: toNumberOrNull(row[COL_Cal_Burned]),
+      Fat__c: toNumberOrNull(row[COL_Fat]),
+      Protein__c: toNumberOrNull(row[COL_Protein]),
+      Carbs__c: toNumberOrNull(row[COL_Carbs]),
+      Week_String__c: row[COL_Week],
+    };
+
+    try {
+      const existingId = findStagingDayIdByDate_(baseUrl, token, dateStr);
+
+      if (existingId) {
+        patchById_(baseUrl, token, 'Staging_Day__c', existingId, payload);
+        console.log(`Updated Staging_Day__c ${existingId} for ${dateStr}`);
+      } else {
+        const newId = createRecord_(baseUrl, token, 'Staging_Day__c', payload);
+        console.log(`Created Staging_Day__c ${newId} for ${dateStr}`);
+      }
+
+      // Mark synced + clear error
+      sheet.getRange(i + 1, COL_SYNCED + 1).setValue(true);
+      if (sheet.getLastColumn() >= COL_ERROR + 1) sheet.getRange(i + 1, COL_ERROR + 1).setValue('');
+
+      success++;
+    } catch (e) {
+      failed++;
+      const msg = String(e);
+      console.error(`Row ${i + 1} failed for ${dateStr}: ${msg}`);
+
+      if (sheet.getLastColumn() >= COL_ERROR + 1) {
+        sheet.getRange(i + 1, COL_ERROR + 1).setValue(msg.slice(0, 500));
+      }
+    }
+  }
+
+  console.log(`Sync finished. Success=${success}, Failed=${failed}, Skipped=${skipped}`);
+}
+
+// --- Salesforce helpers ---
+
+function findStagingDayIdByDate_(baseUrl, accessToken, dateStr) {
+  // Date literal must be unquoted in SOQL: WHERE Date__c = 2026-01-09
+  const soql = `SELECT Id FROM Staging_Day__c WHERE Date__c = ${dateStr} LIMIT 1`;
+  const url = `${baseUrl}/services/data/${SF_API_VERSION}/query?q=` + encodeURIComponent(soql);
+
+  const res = UrlFetchApp.fetch(url, {
+    method: 'get',
+    headers: { Authorization: 'Bearer ' + accessToken },
+    muteHttpExceptions: true
+  });
+
+  const status = res.getResponseCode();
+  const body = res.getContentText();
+
+  if (status >= 300) throw new Error(`SOQL failed (${status}): ${body}`);
+
+  const json = JSON.parse(body);
+  return (json.records && json.records.length > 0) ? json.records[0].Id : null;
+}
+
+function createRecord_(baseUrl, accessToken, sobjectApiName, payload) {
+  const url = `${baseUrl}/services/data/${SF_API_VERSION}/sobjects/${sobjectApiName}/`;
+
+  const res = UrlFetchApp.fetch(url, {
+    method: 'post',
+    contentType: 'application/json',
+    headers: { Authorization: 'Bearer ' + accessToken },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
+
+  const status = res.getResponseCode();
+  const body = res.getContentText();
+
+  if (status >= 300) throw new Error(`Create failed (${status}): ${body}`);
+
+  const json = JSON.parse(body);
+  return json.id;
+}
+
+function patchById_(baseUrl, accessToken, sobjectApiName, recordId, payload) {
+  const url = `${baseUrl}/services/data/${SF_API_VERSION}/sobjects/${sobjectApiName}/${recordId}`;
+
+  const res = UrlFetchApp.fetch(url, {
+    method: 'patch',
+    contentType: 'application/json',
+    headers: { Authorization: 'Bearer ' + accessToken },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
+
+  const status = res.getResponseCode();
+  const body = res.getContentText();
+
+  // PATCH success is often 204 with empty body
+  if (status >= 300) throw new Error(`Update failed (${status}): ${body}`);
+}
+
+//function upsertDailyMetric_(baseUrl, accessToken, metricDate, payload) {
+//  const url =
+//    `${baseUrl}/services/data/${SF_API_VERSION}/sobjects/` +
+//    `Daily_Metrics__c/Metric_Date__c/${encodeURIComponent(metricDate)}`;
+//
+//  const res = UrlFetchApp.fetch(url, {
+//    method: 'patch',
+//    contentType: 'application/json',
+//    headers: { Authorization: 'Bearer ' + accessToken },
+//    payload: JSON.stringify(payload),
+//    muteHttpExceptions: true
+//  });
+//
+//  const status = res.getResponseCode();
+//  const body = res.getContentText();
+//
+//  console.log(`UPSERT metricDate=${metricDate} status=${status}`);
+//  if (body) console.log(`UPSERT body=${body}`);
+//
+//  if (status >= 300) {
+//    throw new Error(`SF upsert failed (${status}): ${body}`);
+//  }
+//}

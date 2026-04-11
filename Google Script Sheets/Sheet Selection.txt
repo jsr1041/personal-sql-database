@@ -1,0 +1,17 @@
+function defaultTrackerSheetName_() {
+  const tz = Session.getScriptTimeZone();
+  const now = new Date();
+
+  const monthName = Utilities.formatDate(now, tz, 'MMMM'); // "January"
+  const year = Utilities.formatDate(now, tz, 'yyyy');      // "2026"
+  return `${monthName} ${year}`;                           // "January 2026"
+}
+
+function getMonthYearSheetNames_() {
+  const ss = SpreadsheetApp.getActive();
+  const re = /^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}$/;
+
+  return ss.getSheets()
+    .map(s => s.getName())
+    .filter(name => re.test(name));
+}

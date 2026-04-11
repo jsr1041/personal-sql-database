@@ -1,0 +1,385 @@
+//const TRACKER_SHEET = 'January 2026';   // <-- change if your tab name differs
+const OUTPUT_SHEET  = 'Day by Day Data';
+const WEEK_START_ROW = 2;   // first week starts on row 2
+const WEEK_HEIGHT = 46;     // next week starts at row 46 => 44 rows per week
+const DAY_BLOCK_WIDTH = 3;  // each day uses 3 columns
+const FIRST_DAY_COL = 2; // Monday value column = B
+const IN_BLOCK_VALUE_COL_OFFSET = 0;   // B (value)
+const IN_BLOCK_POINTS_COL_OFFSET = 1;  // C (points scored)
+const IN_BLOCK_MAX_COL_OFFSET = 2;     // D (max points)
+const ROW_DATE            = 0;
+const ROW_DRINKS          = 31;
+const ROW_LITERS_WATER    = 32;
+const ROW_SCREEN_TIME     = 33;
+const ROW_SLEEP_TIME      = 34;
+const ROW_STEPS           = 35;
+const ROW_PUSHUPS         = 36;
+const ROW_MINUTES_TV      = 37;
+const ROW_MINUTES_READING = 38;
+const ROW_SCORE           = 39;
+const ROW_TOTAL_DAILY_POINTS = 39;
+const ROW_TOTAL_POINTS    = 39;
+const ROW_BREAKFAST       = 40;
+const ROW_LUNCH           = 41;
+const ROW_DINNER          = 42;
+const ROW_DAILY_RATING    = 43;
+const IN_BLOCK_VALUE      = 0;
+const IN_BLOCK_POINTS     = 1;
+const IN_BLOCK_POINTS_2   = 2;
+
+// Row offsets (relative to WEEK_START_ROW)
+
+function weekStartRow(weekIndex) {
+  if (!Number.isInteger(weekIndex) || weekIndex < 0) {
+    throw new Error(`weekIndex must be a non-negative integer. Got: ${weekIndex}`);
+  }
+  return WEEK_START_ROW + (weekIndex * WEEK_HEIGHT);
+}
+
+function colForDay(dayIndex, inBlockOffset) {
+  return FIRST_DAY_COL + (dayIndex * DAY_BLOCK_WIDTH) + inBlockOffset;
+}
+
+function getSpreadsheetTimeZone_() {
+  return SpreadsheetApp.getActive().getSpreadsheetTimeZone();
+}
+
+function toDateKey(dateValue) {
+  if (!dateValue) return null;
+
+  const tz = getSpreadsheetTimeZone_();
+  const d = dateValue instanceof Date ? dateValue : new Date(dateValue);
+
+  return Utilities.formatDate(d, tz, 'yyyy-MM-dd');
+}
+
+function dateFromYMDLocal_(ymd) {
+  if (!ymd) return null;
+
+  const [y, m, d] = ymd.split('-').map(Number);
+  return new Date(y, m - 1, d, 12, 0, 0);
+}
+
+function getSheetYear_() {
+  const year = PropertiesService
+    .getScriptProperties()
+    .getProperty('Sheet Year');
+
+  if (!year) {
+    throw new Error('Missing script property: "Sheet Year"');
+  }
+
+  const y = Number(year);
+  if (!Number.isInteger(y)) {
+    throw new Error(`Invalid Sheet Year: ${year}`);
+  }
+
+  return y;
+}
+
+function getISOWeekNumber_(dateValue) {
+  const tz = getSpreadsheetTimeZone_();
+  const ymd = Utilities.formatDate(dateValue, tz, 'yyyy-MM-dd');
+  const [y, m, d] = ymd.split('-').map(Number);
+
+  const utcDate = new Date(Date.UTC(y, m - 1, d));
+
+  // ISO week starts on Monday
+  const dayNum = utcDate.getUTCDay() || 7; // Sun=7
+  utcDate.setUTCDate(utcDate.getUTCDate() + 4 - dayNum);
+
+  const yearStart = new Date(Date.UTC(utcDate.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((utcDate - yearStart) / 86400000) + 1) / 7);
+
+  return weekNo;
+}
+
+function chooseTrackerSheetName_() {
+  const props = PropertiesService.getUserProperties();
+
+  const candidates = getMonthYearSheetNames_();
+  if (candidates.length === 0) {
+    throw new Error('No tabs found in "Month YYYY" format (e.g., "January 2026").');
+  }
+
+  const defaultName = defaultTrackerSheetName_();
+  const lastUsed = props.getProperty('Last Tracker Sheet') || '';
+
+  // preference order: lastUsed (if exists), else today's month-year (if exists), else first candidate
+  let preferred = candidates.includes(lastUsed)
+    ? lastUsed
+    : (candidates.includes(defaultName) ? defaultName : candidates[0]);
+
+  const preferredIndex = candidates.indexOf(preferred) + 1; // 1-based for display
+
+  const menuText =
+    candidates.map((n, i) => `${i + 1}) ${n}`).join('\n') +
+    `\n\nEnter a number (1-${candidates.length}).`;
+
+  const ui = SpreadsheetApp.getUi();
+  const resp = ui.prompt(
+    'Select Tracker Sheet',
+    `${menuText}\n\nPress OK to use default: 1 (${preferred})`,
+    ui.ButtonSet.OK_CANCEL
+  );
+
+  if (resp.getSelectedButton() !== ui.Button.OK) {
+    throw new Error('User cancelled sheet selection.');
+  }
+
+  const raw = resp.getResponseText().trim();
+  const input = raw === '' ? '1' : raw; // default to 1
+  // Allow either: index number OR exact sheet name
+  let chosen;
+  const asNum = Number(input);
+
+  if (Number.isInteger(asNum) && asNum >= 1 && asNum <= candidates.length) {
+    chosen = candidates[asNum - 1];
+  } else if (candidates.includes(input)) {
+    chosen = input;
+  } else {
+    throw new Error(`Invalid selection: "${input}". Enter a number 1-${candidates.length} or a valid sheet name.`);
+  }
+
+  props.setProperty('Last Tracker Sheet', chosen);
+  return chosen;
+}
+
+function readWeekAsJson(weekIndex, trackerSheetName) {
+  const sheet = SpreadsheetApp.getActive().getSheetByName(trackerSheetName);
+  if (!sheet) throw new Error(`Tracker sheet not found: "${trackerSheetName}"`);
+
+  const baseRow = weekStartRow(weekIndex);
+  const sheetYear = getSheetYear_();
+  const results = [];
+
+  for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
+    const valueCol = colForDay(dayIndex, IN_BLOCK_VALUE);
+    const pointsCol = colForDay(dayIndex, IN_BLOCK_POINTS);
+    const totalpointsCol = colForDay(dayIndex, IN_BLOCK_POINTS_2);
+    const sourceValueCol = FIRST_DAY_COL + (dayIndex * DAY_BLOCK_WIDTH);
+    const dateRaw = sheet.getRange(baseRow + ROW_DATE, valueCol).getValue();
+
+    if (!dateRaw) continue;
+
+    const weekOfYear = getISOWeekNumber_(dateRaw);
+    const sourceWeekLabel = `Week ${weekOfYear}, ${sheetYear}`;
+
+    results.push({
+      weekIndex,
+      dayIndex,
+      date: toDateKey(dateRaw),
+      sourceColumn: columnNumberToLetter_(sourceValueCol),
+      sourceWeek: sourceWeekLabel,
+      drinks: toNumberOrNull(sheet.getRange(baseRow + ROW_DRINKS, valueCol).getValue()),
+      liters_of_water: toNumberOrNull(sheet.getRange(baseRow + ROW_LITERS_WATER, valueCol).getValue()),
+      screen_time: toNumberOrNull(sheet.getRange(baseRow + ROW_SCREEN_TIME, valueCol).getValue()),
+      sleep_time: toNumberOrNull(sheet.getRange(baseRow + ROW_SLEEP_TIME, valueCol).getValue()),
+      steps: toIntOrNull(sheet.getRange(baseRow + ROW_STEPS, valueCol).getValue()),
+      pushups: toIntOrNull(sheet.getRange(baseRow + ROW_PUSHUPS, valueCol).getValue()),
+      minutes_tv: toIntOrNull(sheet.getRange(baseRow + ROW_MINUTES_TV, valueCol).getValue()),
+      minutes_reading: toIntOrNull(sheet.getRange(baseRow + ROW_MINUTES_READING, valueCol).getValue()),
+      breakfast: cleanText(sheet.getRange(baseRow + ROW_BREAKFAST, valueCol).getValue()),
+      lunch: cleanText(sheet.getRange(baseRow + ROW_LUNCH, valueCol).getValue()),
+      dinner: cleanText(sheet.getRange(baseRow + ROW_DINNER, valueCol).getValue()),
+      daily_rating: toIntOrNull(sheet.getRange(baseRow + ROW_DAILY_RATING, valueCol).getValue()),
+      total_daily_points: toIntOrNull(sheet.getRange(baseRow + ROW_TOTAL_DAILY_POINTS, pointsCol).getValue()),
+      total_points: toIntOrNull(sheet.getRange(baseRow + ROW_TOTAL_POINTS, totalpointsCol).getValue()),
+    });
+  }
+
+  return results;
+}
+
+function ensureDayByDayDataSheet_() {
+  const ss = SpreadsheetApp.getActive();
+  let out = ss.getSheetByName(OUTPUT_SHEET);
+  if (!out) out = ss.insertSheet(OUTPUT_SHEET);
+
+  const headers = [
+    'Date',
+    'Total Daily Points',
+    'Total Points',
+    'Drinks',
+    'Liters of Water',
+    'Screen Time',
+    'Sleep Time',
+    'Steps',
+    'Number of Pushups',
+    'Minutes of TV',
+    'Minutes of Reading',
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+    'Daily Rating',
+    'Incomplete Food Log',
+    'Calories',
+    'Calories Burned',
+    'Protein',
+    'Carbs',
+    'Fat',
+    'Source Week',
+    'Source Day'
+  ];
+
+  if (out.getLastRow() === 0 || !out.getRange(1, 1).getValue()) {
+    out.clear();
+    out.getRange(1, 1, 1, headers.length).setValues([headers]);
+    out.setFrozenRows(1);
+  }
+
+  return out;
+}
+
+function buildExistingDateMap_(outSheet) {
+  const values = outSheet.getDataRange().getValues();
+  const map = new Map();
+
+  for (let r = 1; r < values.length; r++) {
+    const d = values[r][0];
+    if (!d) continue;
+
+    const key = toDateKey(d);
+    if (key) map.set(key, r + 1);
+  }
+
+  return map;
+}
+
+const COL_DATE_D2D = 1;
+const COL_TOTAL_DAILY_POINTS_D2D = 2;
+const COL_TOTAL_POINTS_D2D = 3;
+const COL_DRINKS_D2D = 4;
+const COL_LITERS_WATER_D2D = 5;
+const COL_SCREEN_TIME_D2D = 6;
+const COL_SLEEP_TIME_D2D = 7;
+const COL_STEPS_D2D = 8;
+const COL_PUSHUPS_D2D = 9;
+const COL_MINUTES_TV_D2D = 10;
+const COL_MINUTES_READING_D2D = 11;
+const COL_BREAKFAST_D2D = 12;
+const COL_LUNCH_D2D = 13;
+const COL_DINNER_D2D = 14;
+const COL_DAILY_RATING_D2D = 15;
+// columns 16–21 intentionally untouched
+const COL_SOURCE_WEEK = 22;
+const COL_SOURCE_DAY = 23;
+
+function writeDayObjToRow_(sheet, rowNum, dayObj) {
+  const dateAsDate = dayObj.date ? dateFromYMDLocal_(dayObj.date) : null;
+
+  const updates = [
+    [COL_DATE_D2D, dateAsDate],
+    [COL_TOTAL_DAILY_POINTS_D2D, dayObj.total_daily_points ?? null],
+    [COL_TOTAL_POINTS_D2D, dayObj.total_points ?? null],
+    [COL_DRINKS_D2D, dayObj.drinks ?? null],
+    [COL_LITERS_WATER_D2D, dayObj.liters_of_water ?? null],
+    [COL_SCREEN_TIME_D2D, dayObj.screen_time ?? null],
+    [COL_SLEEP_TIME_D2D, dayObj.sleep_time ?? null],
+    [COL_STEPS_D2D, dayObj.steps ?? null],
+    [COL_PUSHUPS_D2D, dayObj.pushups ?? null],
+    [COL_MINUTES_TV_D2D, dayObj.minutes_tv ?? null],
+    [COL_MINUTES_READING_D2D, dayObj.minutes_reading ?? null],
+    [COL_BREAKFAST_D2D, dayObj.breakfast ?? null],
+    [COL_LUNCH_D2D, dayObj.lunch ?? null],
+    [COL_DINNER_D2D, dayObj.dinner ?? null],
+    [COL_DAILY_RATING_D2D, dayObj.daily_rating ?? null],
+    [COL_SOURCE_WEEK, dayObj.sourceWeek ?? null],
+    [COL_SOURCE_DAY, dayObj.sourceColumn ?? null],
+  ];
+
+  for (const [col, value] of updates) {
+    sheet.getRange(rowNum, col).setValue(value);
+  }
+}
+
+function upsertDaysToDayByDayData_(days) {
+  const out = ensureDayByDayDataSheet_();
+  const existing = buildExistingDateMap_(out);
+
+  let updated = 0;
+  let added = 0;
+
+  const byDate = new Map();
+  for (const d of days) {
+    if (!d || !d.date) continue;
+    byDate.set(d.date, d);
+  }
+
+  const uniqueDays = Array.from(byDate.values())
+    .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+
+  for (const dayObj of uniqueDays) {
+    const key = dayObj.date;
+
+    if (existing.has(key)) {
+      const rowNum = existing.get(key);
+      writeDayObjToRow_(out, rowNum, dayObj);
+      updated++;
+    } else {
+      const newRowNum = out.getLastRow() + 1;
+      out.insertRowAfter(out.getLastRow());
+      writeDayObjToRow_(out, newRowNum, dayObj);
+      existing.set(key, newRowNum);
+      added++;
+    }
+  }
+
+  console.log(`Day by Day Data upsert complete. Updated=${updated}, Added=${added}`);
+}
+
+function copyNWeeksToDayByDayData(startWeekIndex, numberOfWeeks, trackerSheetName) {
+  if (!Number.isInteger(startWeekIndex) || startWeekIndex < 0) {
+    throw new Error(`Invalid startWeekIndex: ${startWeekIndex}`);
+  }
+  if (!Number.isInteger(numberOfWeeks) || numberOfWeeks <= 0) {
+    throw new Error(`Invalid numberOfWeeks: ${numberOfWeeks}`);
+  }
+
+  const allDays = [];
+
+  for (let w = startWeekIndex; w < startWeekIndex + numberOfWeeks; w++) {
+    allDays.push(...readWeekAsJson(w, trackerSheetName));
+  }
+
+  upsertDaysToDayByDayData_(allDays);
+}
+
+function promptAndCopyWeeksToDayByDayData() {
+  const ui = SpreadsheetApp.getUi();
+
+  const trackerSheetName = chooseTrackerSheetName_();
+
+  const response = ui.prompt(
+    'Copy to Day by Day Data',
+    'How many weeks would you like to copy (starting from week 0)?',
+    ui.ButtonSet.OK_CANCEL
+  );
+
+  if (response.getSelectedButton() !== ui.Button.OK) {
+    console.log('User cancelled.');
+    return;
+  }
+
+  const input = response.getResponseText().trim();
+  const numberOfWeeks = Number(input);
+
+  if (!Number.isInteger(numberOfWeeks) || numberOfWeeks <= 0) {
+    ui.alert('Please enter a positive whole number (e.g. 1, 2, 3).');
+    return;
+  }
+
+  const startWeekIndex = 0;
+
+  copyNWeeksToDayByDayData(startWeekIndex, numberOfWeeks, trackerSheetName);
+
+  ui.alert(`Copied ${numberOfWeeks} week(s) into Day by Day Data.`);
+}
+
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('Salesforce Sync')
+    .addItem('Copy weeks → Day by Day Data', 'promptAndCopyWeeksToDayByDayData')
+    .addItem('Sync Staging Day', 'syncMetricsToSalesforce')
+    .addToUi();
+}
