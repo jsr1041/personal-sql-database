@@ -136,6 +136,35 @@ def semicircles_to_degrees(val):
     return val * (180.0 / 2**31)
 
 
+# ---------------------------------------------------------------------------
+# FINGERPRINT  (keep in sync with backfill_fingerprints.py and batch_ingest_exercise.py)
+# ---------------------------------------------------------------------------
+
+def make_fingerprint(activity_date, type_of_activity, distance_miles, duration_minutes):
+    """
+    Compute a normalized cross-source dedup key.
+
+    Returns a string like '2024-03-15|Run|6.2|52', or None if any required
+    field is missing.
+
+    Rounding:
+      distance_miles    → 1 decimal place  (0.1 mi tolerance)
+      duration_minutes  → 0 decimal places (1 min tolerance)
+    """
+    if not activity_date or not type_of_activity or distance_miles is None or duration_minutes is None:
+        return None
+    try:
+        d    = str(activity_date)
+        t    = str(type_of_activity).strip()
+        dist = str(round(float(distance_miles), 1))
+        dur  = str(round(float(duration_minutes), 0))
+        if dur.endswith(".0"):
+            dur = dur[:-2]
+        return f"{d}|{t}|{dist}|{dur}"
+    except (TypeError, ValueError):
+        return None
+
+
 def parse_fit(fit_path):
     """
     Parse a FIT file and return:
@@ -163,7 +192,7 @@ def parse_fit(fit_path):
     return session_data, trackpoints
 
 
-def extract_exercise_fields(session_data):
+def extract_exercise_fields(session_data, fit_filename=None):
     """Map FIT session fields to exercise table columns."""
 
     def get(*keys):
@@ -173,18 +202,22 @@ def extract_exercise_fields(session_data):
                 return v
         return None
 
+    # Source file metadata
+    garmin_fit_file  = fit_filename or None
+    source_record_id = os.path.splitext(fit_filename)[0] if fit_filename else None
+
     # Sport / activity type — map raw FIT values to canonical hierarchy
-    sport_raw = str(get("sport") or "").replace("Sport.", "").lower()
+    sport_raw     = str(get("sport") or "").replace("Sport.", "").lower()
     sub_sport_raw = str(get("sub_sport") or "").replace("SubSport.", "").lower()
 
     # Distances and durations
     total_distance_m = get("total_distance")          # meters (StandardUnits)
     distance_miles = round(total_distance_m / 1609.344, 2) if total_distance_m else None
 
-    timer_time_s = get("total_timer_time")            # active time seconds
-    elapsed_time_s = get("total_elapsed_time")        # wall-clock seconds
-    duration_minutes = round(timer_time_s / 60, 2) if timer_time_s else None
-    total_elapsed_time = round(elapsed_time_s / 60, 2) if elapsed_time_s else None
+    timer_time_s   = get("total_timer_time")           # active time seconds
+    elapsed_time_s = get("total_elapsed_time")         # wall-clock seconds
+    duration_minutes    = round(timer_time_s / 60, 2) if timer_time_s else None
+    total_elapsed_time  = round(elapsed_time_s / 60, 2) if elapsed_time_s else None
 
     # Elevation
     total_ascent_m = get("total_ascent")              # meters (StandardUnits)
@@ -208,9 +241,9 @@ def extract_exercise_fields(session_data):
     num_laps = get("num_laps")
 
     # Running dynamics (session-level averages)
-    avg_vertical_ratio = _scale("vertical_ratio", get("avg_vertical_ratio"))
+    avg_vertical_ratio      = _scale("vertical_ratio", get("avg_vertical_ratio"))
     avg_stance_time_balance = get("avg_stance_time_balance")  # already % from StandardUnits
-    avg_step_length_mm = get("avg_step_length")               # mm from FIT
+    avg_step_length_mm      = get("avg_step_length")          # mm from FIT
 
     # Timestamps
     start_time = get("start_time")
@@ -222,30 +255,35 @@ def extract_exercise_fields(session_data):
     # TSS (if present — Garmin sometimes includes training_stress_score)
     tss = get("training_stress_score")
 
-    canonical_type = FIT_TYPE_MAP.get(sport_raw)
+    canonical_type    = FIT_TYPE_MAP.get(sport_raw)
     canonical_subtype = FIT_SUBTYPE_MAP.get(sub_sport_raw) if sub_sport_raw else None
 
     return {
-        "type_of_activity": canonical_type,
+        "type_of_activity":    canonical_type,
         "subtype_of_activity": canonical_subtype,
-        "_fit_sport_raw": sport_raw,
-        "_fit_sub_sport_raw": sub_sport_raw,
-        "activity_date": activity_date,
-        "distance_miles": distance_miles,
-        "duration_minutes": duration_minutes,
-        "total_elapsed_time": total_elapsed_time,
+        "_fit_sport_raw":      sport_raw,
+        "_fit_sub_sport_raw":  sub_sport_raw,
+        "activity_date":       activity_date,
+        "distance_miles":      distance_miles,
+        "duration_minutes":    duration_minutes,
+        "total_elapsed_time":  total_elapsed_time,
         "elevation_gain_feet": elevation_gain_feet,
-        "average_heart_rate": avg_hr,
-        "max_heart_rate": max_hr,
-        "average_cadence": avg_cadence,
-        "average_power": avg_power,
-        "max_power": max_power,
-        "calories": calories,
-        "num_laps": num_laps,
-        "avg_vertical_ratio": avg_vertical_ratio,
-        "avg_stance_time_balance": avg_stance_time_balance,
-        "avg_step_length_mm": avg_step_length_mm,
-        "tss_score": tss,
+        "average_heart_rate":  avg_hr,
+        "max_heart_rate":      max_hr,
+        "average_cadence":     avg_cadence,
+        "average_power":       avg_power,
+        "max_power":           max_power,
+        "calories":            calories,
+        "num_laps":            num_laps,
+        "avg_vertical_ratio":        avg_vertical_ratio,
+        "avg_stance_time_balance":   avg_stance_time_balance,
+        "avg_step_length_mm":        avg_step_length_mm,
+        "tss_score":                 tss,
+        "garmin_fit_file":           garmin_fit_file,
+        "source_record_id":          source_record_id,
+        "activity_fingerprint":      make_fingerprint(
+                                         activity_date, canonical_type,
+                                         distance_miles, duration_minutes),
     }
 
 
@@ -280,25 +318,25 @@ def extract_trackpoints(trackpoints):
         recorded_at = g("timestamp")
 
         rows.append({
-            "recorded_at": recorded_at,
-            "position_lat": round(lat, 6) if lat is not None else None,
-            "position_long": round(lon, 6) if lon is not None else None,
-            "altitude_meters": round(alt, 1) if alt is not None else None,
-            "distance_meters": round(g("distance"), 1) if g("distance") is not None else None,
-            "speed_ms": round(speed, 3) if speed is not None else None,
-            "heart_rate": g("heart_rate"),
-            "cadence": g("cadence"),
-            "power": g("power"),
-            "temperature_c": g("temperature"),
-            "gps_accuracy_m": g("gps_accuracy"),
-            "vertical_oscillation_mm": g("vertical_oscillation"),
-            "stance_time_ms": g("stance_time"),
-            "stance_time_pct": g("stance_time_percent"),
-            "vertical_ratio_pct": round(vr, 2) if vr is not None else None,
+            "recorded_at":               recorded_at,
+            "position_lat":              round(lat, 6) if lat is not None else None,
+            "position_long":             round(lon, 6) if lon is not None else None,
+            "altitude_meters":           round(alt, 1) if alt is not None else None,
+            "distance_meters":           round(g("distance"), 1) if g("distance") is not None else None,
+            "speed_ms":                  round(speed, 3) if speed is not None else None,
+            "heart_rate":                g("heart_rate"),
+            "cadence":                   g("cadence"),
+            "power":                     g("power"),
+            "temperature_c":             g("temperature"),
+            "gps_accuracy_m":            g("gps_accuracy"),
+            "vertical_oscillation_mm":   g("vertical_oscillation"),
+            "stance_time_ms":            g("stance_time"),
+            "stance_time_pct":           g("stance_time_percent"),
+            "vertical_ratio_pct":        round(vr, 2) if vr is not None else None,
             "ground_contact_balance_pct": g("left_right_balance"),
-            "performance_condition": g("performance_condition"),
-            "absolute_pressure_pa": g("absolute_pressure"),
-            "spo2_pct": g("pulse_oximetry_data"),
+            "performance_condition":     g("performance_condition"),
+            "absolute_pressure_pa":      g("absolute_pressure"),
+            "spo2_pct":                  g("pulse_oximetry_data"),
         })
     return rows
 
@@ -525,6 +563,8 @@ def print_write_summary(exercise_fields, exercise_extras, analysis_data, trackpo
     print(f"    type_of_activity : {exercise_extras['type_override']}")
     print(f"    subtype          : {exercise_extras['subtype_override'] or 'None'}")
     print(f"    garmin_fit_file  : {exercise_fields.get('garmin_fit_file')}")
+    print(f"    source_record_id : {exercise_fields.get('source_record_id')}")
+    print(f"    fingerprint      : {exercise_fields.get('activity_fingerprint') or 'none'}")
     print(f"    primary_gear     : {exercise_extras.get('gear_name') or 'None'}")
     print(f"    distance_miles   : {exercise_fields['distance_miles']}")
     print(f"    duration_minutes : {exercise_fields['duration_minutes']}")
@@ -541,6 +581,49 @@ def print_write_summary(exercise_fields, exercise_extras, analysis_data, trackpo
 # ---------------------------------------------------------------------------
 # DATABASE WRITES
 # ---------------------------------------------------------------------------
+
+def find_existing_exercise(conn, source_record_id, fingerprint):
+    """
+    Two-layer idempotency check. Returns (exercise_id, match_type) or (None, None).
+
+    Layer 1 — exact source key: (source_system='garmin_fit', source_record_id)
+    Layer 2 — fingerprint:      cross-source match on date+type+distance+duration
+    """
+    with conn.cursor() as cur:
+
+        # Layer 1 — exact source key
+        if source_record_id:
+            cur.execute(
+                """
+                SELECT exercise_id FROM exercise
+                WHERE source_system    = 'garmin_fit'
+                  AND source_record_id = %s
+                  AND is_deleted = FALSE
+                LIMIT 1
+                """,
+                (source_record_id,),
+            )
+            row = cur.fetchone()
+            if row:
+                return row[0], "source_key"
+
+        # Layer 2 — fingerprint
+        if fingerprint:
+            cur.execute(
+                """
+                SELECT exercise_id FROM exercise
+                WHERE activity_fingerprint = %s
+                  AND is_deleted = FALSE
+                LIMIT 1
+                """,
+                (fingerprint,),
+            )
+            row = cur.fetchone()
+            if row:
+                return row[0], "fingerprint"
+
+    return None, None
+
 
 def resolve_day_id(conn, activity_date):
     """Look up day_id for a given date. Returns None if not found."""
@@ -573,7 +656,8 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             calories, tss_score, num_laps,
             avg_vertical_ratio, avg_stance_time_balance, avg_step_length_mm,
             garmin_fit_file,
-            source_system, source_object
+            source_system, source_object, source_record_id,
+            activity_fingerprint
         ) VALUES (
             %(day_id)s, %(week_id)s, %(activity_date)s,
             %(type_of_activity)s, %(subtype_of_activity)s,
@@ -583,7 +667,8 @@ def insert_exercise(cur, exercise_fields, exercise_extras, day_id, week_id):
             %(calories)s, %(tss_score)s, %(num_laps)s,
             %(avg_vertical_ratio)s, %(avg_stance_time_balance)s, %(avg_step_length_mm)s,
             %(garmin_fit_file)s,
-            %(source_system)s, %(source_object)s
+            %(source_system)s, %(source_object)s, %(source_record_id)s,
+            %(activity_fingerprint)s
         )
         RETURNING exercise_id;
     """
@@ -722,7 +807,7 @@ def main():
     args = parser.parse_args()
 
     fit_path = args.fit_file
-    dry_run = args.dry_run
+    dry_run  = args.dry_run
 
     if not os.path.exists(fit_path):
         print(f"Error: file not found — {fit_path}")
@@ -731,8 +816,8 @@ def main():
     # ── Step 1: Parse FIT file ──────────────────────────────
     print(f"\nParsing {fit_path} ...")
     session_data, trackpoints = parse_fit(fit_path)
-    exercise_fields = extract_exercise_fields(session_data)
-    exercise_fields["garmin_fit_file"] = os.path.basename(fit_path)
+    fit_filename   = os.path.basename(fit_path)
+    exercise_fields = extract_exercise_fields(session_data, fit_filename=fit_filename)
     tp_rows = extract_trackpoints(trackpoints)
 
     # ── Step 2: Preview ─────────────────────────────────────
@@ -772,7 +857,23 @@ def main():
             print("  Error: could not determine activity date from FIT file.")
             sys.exit(1)
 
-        day_id = resolve_day_id(conn, activity_date)
+        # ── Idempotency check ────────────────────────────────────
+        existing_id, match_type = find_existing_exercise(
+            conn,
+            exercise_fields.get("source_record_id"),
+            exercise_fields.get("activity_fingerprint"),
+        )
+        if existing_id:
+            label = "source key (exact FIT file)" if match_type == "source_key" else "fingerprint (cross-source match)"
+            print(f"\n  ⚠️  Duplicate detected via {label}.")
+            print(f"  Existing exercise_id = {existing_id}")
+            proceed = input("  This activity may already be in the database. Proceed anyway? (y/n): ").strip().lower()
+            if proceed != "y":
+                print("  Aborted — nothing written.")
+                conn.close()
+                sys.exit(0)
+
+        day_id  = resolve_day_id(conn, activity_date)
         week_id = resolve_week_id(conn, activity_date)
 
         if not day_id:
