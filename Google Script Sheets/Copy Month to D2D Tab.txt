@@ -381,5 +381,8 @@ function onOpen() {
     .createMenu('Salesforce Sync')
     .addItem('Copy weeks → Day by Day Data', 'promptAndCopyWeeksToDayByDayData')
     .addItem('Sync Staging Day', 'syncMetricsToSalesforce')
+    .addSeparator()
+    .addItem('Re-authorize Salesforce', 'reAuthorizeSalesforce')
+    .addItem('Check Salesforce Auth', 'checkAuth')
     .addToUi();
 }

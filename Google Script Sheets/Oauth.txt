@@ -28,19 +28,40 @@ function authCallback(request) {
 
 function authorizeSalesforce() {
   const service = getSalesforceService();
-  if (service.hasAccess()) return 'Already authorized';
+  if (service.hasAccess()) {
+    SpreadsheetApp.getUi().alert('Salesforce: Already authorized ✓');
+    return 'Already authorized';
+  }
 
   const url = service.getAuthorizationUrl();
-  Logger.log(url);
+  showAuthUrlDialog_(url);
   return url;
 }
 
 function checkAuth() {
-  console.log(getSalesforceService().hasAccess());
+  const authorized = getSalesforceService().hasAccess();
+  if (authorized) {
+    SpreadsheetApp.getUi().alert('Salesforce: Authorized ✓');
+  } else {
+    reAuthorizeSalesforce();
+  }
+}
+
+function reAuthorizeSalesforce() {
+  getSalesforceService().reset();
+  authorizeSalesforce(); // clears token then immediately shows auth URL dialog
 }
 
 function forceReauthSalesforce() {
-  const service = getSalesforceService();
-  service.reset(); // clears cached token
-  console.log('Reset done. Now run your auth function to authorize again.');
+  reAuthorizeSalesforce(); // back-compat alias
+}
+
+function showAuthUrlDialog_(url) {
+  const html = HtmlService.createHtmlOutput(
+    '<p style="font-family:sans-serif">Click below to authorize Salesforce, ' +
+    'then close this dialog and run Sync again.</p>' +
+    '<p><a href="' + url + '" target="_blank" style="font-size:14px">' +
+    'Authorize Salesforce →</a></p>'
+  ).setWidth(450).setHeight(120);
+  SpreadsheetApp.getUi().showModalDialog(html, 'Salesforce Authorization Required');
 }

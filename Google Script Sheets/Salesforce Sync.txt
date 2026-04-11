@@ -30,94 +30,104 @@ const COL_ERROR = 24;         // Y
 function syncMetricsToSalesforce() {
 
   const lock = LockService.getDocumentLock();
-    if (!lock.tryLock(10 * 1000)) {
-  SpreadsheetApp.getUi().alert('Sync already running. Try again in a moment.');
-  return;
-}
-try {
-  // existing sync code...
-} finally {
-  lock.releaseLock();
-}
-  const service = getSalesforceService();
-  if (!service.hasAccess()) throw new Error('Not authorized.');
-
-  const baseUrl = service.getToken().instance_url;
-  const token = service.getAccessToken();
-
-  const sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME);
-  if (!sheet) throw new Error(`Sheet "${SHEET_NAME}" not found.`);
-
-  const values = sheet.getDataRange().getValues();
-
-  let success = 0, failed = 0, skipped = 0;
-
-  for (let i = 1; i < values.length; i++) { // skip header row
-    const row = values[i];
-
-    const dateVal = row[COL_DATE];
-    const synced = row[COL_SYNCED];
-
-    if (!dateVal || synced === true) {
-      skipped++;
-      continue;
-    }
-
-    const dateStr = Utilities.formatDate(new Date(dateVal), 'GMT', 'yyyy-MM-dd');
-
-    const payload = {
-      Date__c: dateStr,
-      Daily_Points_Scored__c: toNumberOrNull(row[COL_POINTS_SCORED]),
-      Total_Daily_Points__c: toNumberOrNull(row[COL_TOTAL_POINTS]),
-      Drinks__c: toNumberOrNull(row[COL_DRINKS]),
-      Liters_of_Water__c: toNumberOrNull(row[COL_WATER]),
-      Sleep_Time__c: toNumberOrNull(row[COL_SLEEP]),
-      Screen_Time__c: toNumberOrNull(row[COL_Screen]),
-      Steps__c: toIntOrNull(row[COL_STEPS]),
-      Minutes_of_TV__c: toNumberOrNull(row[COL_TV]),
-      Minutes_of_Reading__c: toNumberOrNull(row[COL_Read]),
-      Breakfast__c: row[COL_Breakfast],
-      Lunch__c: row[COL_Lunch],
-      Dinner__c: row[COL_Dinner],
-      Daily_Rating__c: toNumberOrNull(row[COL_Rating]),
-      Incomplete_Food_Log__c: yesNoToBoolean(row[COL_Incomplete_Food]),
-      Number_of_Pushups__c: toNumberOrNull(row[COL_Pushups]),
-      Calories__c:toNumberOrNull(row[COL_Calories]),
-      Calories_Burned__c: toNumberOrNull(row[COL_Cal_Burned]),
-      Fat__c: toNumberOrNull(row[COL_Fat]),
-      Protein__c: toNumberOrNull(row[COL_Protein]),
-      Carbs__c: toNumberOrNull(row[COL_Carbs]),
-      Week_String__c: row[COL_Week],
-    };
-
-    try {
-      const existingId = findStagingDayIdByDate_(baseUrl, token, dateStr);
-
-      if (existingId) {
-        patchById_(baseUrl, token, 'Staging_Day__c', existingId, payload);
-        console.log(`Updated Staging_Day__c ${existingId} for ${dateStr}`);
-      } else {
-        const newId = createRecord_(baseUrl, token, 'Staging_Day__c', payload);
-        console.log(`Created Staging_Day__c ${newId} for ${dateStr}`);
-      }
-
-      // Mark synced + clear error
-      sheet.getRange(i + 1, COL_SYNCED + 1).setValue(true);
-      if (sheet.getLastColumn() >= COL_ERROR + 1) sheet.getRange(i + 1, COL_ERROR + 1).setValue('');
-
-      success++;
-    } catch (e) {
-      failed++;
-      const msg = String(e);
-      console.error(`Row ${i + 1} failed for ${dateStr}: ${msg}`);
-
-      if (sheet.getLastColumn() >= COL_ERROR + 1) {
-        sheet.getRange(i + 1, COL_ERROR + 1).setValue(msg.slice(0, 500));
-      }
-    }
+  if (!lock.tryLock(10 * 1000)) {
+    SpreadsheetApp.getUi().alert('Sync already running. Try again in a moment.');
+    return;
   }
 
-  console.log(`Sync finished. Success=${success}, Failed=${failed}, Skipped=${skipped}`);
+  try {
+    const service = getSalesforceService();
+    if (!service.hasAccess()) {
+      lock.releaseLock();
+      reAuthorizeSalesforce(); // shows auth dialog
+      return;
+    }
+
+    const baseUrl = service.getToken().instance_url;
+    const token = service.getAccessToken();
+
+    const sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME);
+    if (!sheet) throw new Error(`Sheet "${SHEET_NAME}" not found.`);
+
+    const values = sheet.getDataRange().getValues();
+
+    let success = 0, failed = 0, skipped = 0;
+
+    for (let i = 1; i < values.length; i++) { // skip header row
+      const row = values[i];
+
+      const dateVal = row[COL_DATE];
+      const synced = row[COL_SYNCED];
+
+      if (!dateVal || synced === true) {
+        skipped++;
+        continue;
+      }
+
+      const dateStr = Utilities.formatDate(new Date(dateVal), 'GMT', 'yyyy-MM-dd');
+
+      const payload = {
+        Date__c: dateStr,
+        Daily_Points_Scored__c: toNumberOrNull(row[COL_POINTS_SCORED]),
+        Total_Daily_Points__c: toNumberOrNull(row[COL_TOTAL_POINTS]),
+        Drinks__c: toNumberOrNull(row[COL_DRINKS]),
+        Liters_of_Water__c: toNumberOrNull(row[COL_WATER]),
+        Sleep_Time__c: toNumberOrNull(row[COL_SLEEP]),
+        Screen_Time__c: toNumberOrNull(row[COL_Screen]),
+        Steps__c: toIntOrNull(row[COL_STEPS]),
+        Minutes_of_TV__c: toNumberOrNull(row[COL_TV]),
+        Minutes_of_Reading__c: toNumberOrNull(row[COL_Read]),
+        Breakfast__c: row[COL_Breakfast],
+        Lunch__c: row[COL_Lunch],
+        Dinner__c: row[COL_Dinner],
+        Daily_Rating__c: toNumberOrNull(row[COL_Rating]),
+        Incomplete_Food_Log__c: yesNoToBoolean(row[COL_Incomplete_Food]),
+        Number_of_Pushups__c: toNumberOrNull(row[COL_Pushups]),
+        Calories__c: toNumberOrNull(row[COL_Calories]),
+        Calories_Burned__c: toNumberOrNull(row[COL_Cal_Burned]),
+        Fat__c: toNumberOrNull(row[COL_Fat]),
+        Protein__c: toNumberOrNull(row[COL_Protein]),
+        Carbs__c: toNumberOrNull(row[COL_Carbs]),
+        Week_String__c: row[COL_Week],
+      };
+
+      try {
+        const existingId = findStagingDayIdByDate_(baseUrl, token, dateStr);
+
+        if (existingId) {
+          patchById_(baseUrl, token, 'Staging_Day__c', existingId, payload);
+          console.log(`Updated Staging_Day__c ${existingId} for ${dateStr}`);
+        } else {
+          const newId = createRecord_(baseUrl, token, 'Staging_Day__c', payload);
+          console.log(`Created Staging_Day__c ${newId} for ${dateStr}`);
+        }
+
+        // Mark synced + clear error
+        sheet.getRange(i + 1, COL_SYNCED + 1).setValue(true);
+        if (sheet.getLastColumn() >= COL_ERROR + 1) sheet.getRange(i + 1, COL_ERROR + 1).setValue('');
+
+        success++;
+      } catch (e) {
+        const msg = String(e);
+        if (msg.includes('(401)')) {
+          // Token expired mid-sync — stop immediately and prompt re-auth
+          SpreadsheetApp.getUi().alert(`Sync stopped at row ${i + 1}: Salesforce session expired.\n\nRows synced so far: ${success}. Re-authorize and run Sync again to continue.`);
+          reAuthorizeSalesforce(); // shows auth dialog
+          return;
+        }
+        failed++;
+        console.error(`Row ${i + 1} failed for ${dateStr}: ${msg}`);
+        if (sheet.getLastColumn() >= COL_ERROR + 1) {
+          sheet.getRange(i + 1, COL_ERROR + 1).setValue(msg.slice(0, 500));
+        }
+      }
+    }
+
+    SpreadsheetApp.getUi().alert(`Sync complete.\n\nSuccess: ${success}\nFailed: ${failed}\nSkipped: ${skipped}`);
+
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 // --- Salesforce helpers ---
